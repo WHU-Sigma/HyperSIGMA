@@ -57,9 +57,9 @@ To solve these problems, we propose HyperSIGMA, a hyperspectral intelligence com
 
 # 🛠️ Usage
 
-## Preparing Pretraining Dataset
+## Pretraining Dataset
 
-1. Download 数据集名称 dataset.
+The pretraining dataset will be released soon.
 
 
 ## Performing Pretraining
@@ -121,5 +121,4 @@ This project is for research purpose only. For any other questions please contac
 ## 💖 Thanks
 
 * [MAE](https://github.com/facebookresearch/mae), [RSP](https://github.com/ViTAE-Transformer/RSP)
-* 
 
