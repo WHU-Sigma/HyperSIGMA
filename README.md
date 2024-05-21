@@ -13,7 +13,11 @@
   <a href="#🎺-statement">Statement</a>
 </p >
 
-
+<figure>
+<div align="center">
+<img src=HyperSIGMA/Fig/logo.png width="100%">
+</div>
+</figure>
 
 # 🔥 Update
 
@@ -38,70 +42,20 @@ To solve these problems, we propose HyperSIGMA, a hyperspectral intelligence com
 
 # 📖 Datasets and Models
 
-## Pretraining Dataset
-
-Acquired from Earth Observing one (EO-1) [Hyperion](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-earth-observing-one-eo-1-hyperion) and Gaofen-5B (GF-5B) data, we created a large-scale dataset **数据集名称** consisting 447,072 hyperspectral image patches of size 64×64.
-
-We have uploaded 数据集名称 to [OneDive](链接) and [Baidu](链接).
-
 ## Pretrained Models
 
 | Pretrain | Backbone | Model Weights |
 | :------- | :------: | :------ |
-| Spatial_MAE | ViT-B | [Baidu]() & [OneDrive]() | 
-| Spectral_MAE | ViT-B |  [Baidu]() & [OneDrive]() |
-| Spatial_MAE | ViT-L | [Baidu]() & [OneDrive]() | 
-| Spectral_MAE | ViT-L |  [Baidu]() & [OneDrive]() |
-| Spatial_MAE | ViT-H | [Baidu]() & [OneDrive]() | 
-| Spectral_MAE | ViT-H |  [Baidu]() & [OneDrive]() |
+| Spatial_MAE | ViT-B | [Baidu](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc)  | 
+| Spatial_MAE | ViT-L |  [Baidu](https://pan.baidu.com/s/11iwHFh8sfg9S-inxOYtJlA?pwd=d2qs)  |
+| Spatial_MAE | ViT-H | [Baidu](https://pan.baidu.com/s/1gV9A_XmTCBRw90zjSt90ZQ?pwd=knuu) | 
+| Spectral_MAE | ViT-B |  [Baidu](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y)  |
+| Spectral_MAE | ViT-L | [Baidu](https://pan.baidu.com/s/1tF2rG-T_65QA3UaG4K9Lhg?pwd=xvdd) | 
+| Spectral_MAE | ViT-H |  [Baidu](https://pan.baidu.com/s/1Di9ffWuzxPZUagBCU4Px2w?pwd=bi9r)|
 
 
-## Finetuned Models
-
-### Image Classification
-
-| Pretrain | Dataset | Backbone | OA | Config | Log | Weights |
-| :------- | :------ | :------ | :-----: | :-----: |:-----: | :-----: |
-| SpatMAE | | ViT-B|  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpecMAE | | ViT-B |  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpatMAE + SpecMAE | | ViT-B | | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-
-
-### Target Detection
-| Pretrain | Dataset | Backbone | OA | Config | Log | Weights |
-| :------- | :------ | :------ | :-----: | :-----: |:-----: | :-----: |
-| SpatMAE | | ViT-B|  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpecMAE | | ViT-B |  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpatMAE + SpecMAE | | ViT-B | | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-
-
-
-### Unmixing 
-| Pretrain | Dataset | Backbone | OA | Config | Log | Weights |
-| :------- | :------ | :------ | :-----: | :-----: |:-----: | :-----: |
-| SpatMAE | | ViT-B|  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpecMAE | | ViT-B |  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpatMAE + SpecMAE | | ViT-B | | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-
-### Change Detection
-| Pretrain | Dataset | Backbone | OA | Config | Log | Weights |
-| :------- | :------ | :------ | :-----: | :-----: |:-----: | :-----: |
-| SpatMAE | | ViT-B|  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpecMAE | | ViT-B |  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpatMAE + SpecMAE | | ViT-B | | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-
-### Image Restoration
-| Pretrain | Dataset | Backbone | OA | Config | Log | Weights |
-| :------- | :------ | :------ | :-----: | :-----: |:-----: | :-----: |
-| SpatMAE | | ViT-B|  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpecMAE | | ViT-B |  | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
-| SpatMAE + SpecMAE | | ViT-B | | [Config]() | [Log]() | [Baidu]() & [OneDrive]() |
 
 # 🛠️ Usage
-
-## Environment
-
-
 
 ## Preparing Pretraining Dataset
 
