@@ -15,7 +15,7 @@
 
 <figure>
 <div align="center">
-<img src=Fig/logo.png width="100%">
+<img src=Fig/logo.png width="10%">
 </div>
 </figure>
 
