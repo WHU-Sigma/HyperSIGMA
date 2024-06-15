@@ -62,7 +62,7 @@ To solve these problems, we propose HyperSIGMA, a hyperspectral intelligence com
 The pretraining dataset will be released soon.
 
 
-## Performing Pretraining
+## Perform Pretraining
 
 We pretrain the HyperSIGMA with SLURM. This is an example of pretraining spatial MAE with backbone ViT-B:
 
@@ -75,7 +75,7 @@ The training can be recovered by setting `--ft` and `--resume`
 --ft 'True' --resume [path of saved multi-task pretrained model]
 ```
 
-## Preparing Finetuning Dataset
+## Perform Finetuning
 
 **For image classification**: using 
 ```
