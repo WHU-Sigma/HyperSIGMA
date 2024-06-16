@@ -31,14 +31,7 @@
   
   </p>
 
-
-<p align="center">
-  <a href="# Overview">Overview</a> |
-  <a href="# 🔥 Update">Update</a> |
-  <a href="# 🛠️ Usage">Datasets and Models</a> |
-  <a href="# ⭐ Citation">Usage</a>
-</p >
-
+  
 <figure>
 <div align="center">
 <img src=Fig/logo.png width="20%">
@@ -49,32 +42,34 @@
 
 # Overview
 
-HyperSIGMA is a vision transformer-based foundation model for HSI interpretation that is scalable to over a billion parameters. </a>
+**HyperSIGMA** is the first billion-level foundation model specifically designed for HSI interpretation. To tackle the
+spectral and spatial redundancy challenges in HSIs, we introduce a novel sparse sampling attention (SSA) mechanism, which effectively
+promotes the learning of diverse contextual features and serves as the basic block of HyperSIGMA. HyperSIGMA integrates spatial and
+spectral features using a specially designed spectral enhancement module.</a>
 
 
 <figure>
 <div align="center">
 <img src=Fig/framework.png width="80%">
- <figcaption align = "center"><b>Figure 1:  Framework of HyperSigma.
-</b></figcaption>
 </div>
-</figure>
- 
 
-Extensive experiments on various high-level and low-level HSI tasks demonstrate HyperSIGMA’s versatility and superior representational
-capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
+<div align='center'>
+ 
+**Figure 1. Framework of HyperSIGMA.**
+
+</div>
+<br>
+
+
+Extensive experiments on various high-level and low-level HSI tasks demonstrate HyperSIGMA’s versatility and superior representational capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
 
 <figure>
 <div align="center">
 <img src=Fig/radarimg.png width="80%">
- <figcaption align = "center"><b>Figure 2:  HyperSIGMA 
-demonstrates superior performance across 16 datasets and 7 tasks,
-including both high-level and low-level hyperspectral tasks, as well as
-multispectral scenes. 
-</b></figcaption>
 </div>
 </figure>
 
+**Figure 2. HyperSIGMA demonstrates superior performance across 16 datasets and 7 tasks, including both high-level and low-level hyperspectral tasks, as well as multispectral scenes.** 
 
 
 # 🔥 Update
@@ -83,18 +78,19 @@ multispectral scenes.
 **2024.06.17**
 
 - The paper is post on arxiv!
-- 
+
 # 📖 Datasets and Models
 To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
 
 <figure>
-<img src="Fig/dataset.png">
-<figcaption align = "center"><b>Figure 3:   The distribution of HyperGlobal-450K samples across the globe, comprising 1,701 images (1,486 EO-1 and 215 GF-5B) with hundreds of
-spectral bands.  
- </b></figcaption>
+<div align="center">
+<img src=Fig/dataset.png width="80%">
+</div>
 </figure>
 
-## Pretrained Models
+**Figure 3. The distribution of HyperGlobal-450K samples across the globe, comprising 1,701 images (1,486 EO-1 and 215 GF-5B) with hundreds of spectral bands.**
+
+## 🚀 Pretrained Models
 
 | Pretrain | Backbone | Model Weights |
 | :------- | :------: | :------ |
