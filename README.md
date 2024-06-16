@@ -33,10 +33,10 @@
 
 
 <p align="center">
-  <a href="#🌞-overview">#Overview</a> |
-  <a href="#🔥-update">#Update</a> |
-  <a href="#📖-datasets-and-models">#Datasets and Models</a> |
-  <a href="#🎺-statement">#Usage</a>
+  <a href="#🌞-overview">Overview</a> |
+  <a href="#🔥-update">Update</a> |
+  <a href="#📖-datasets-and-models">Datasets and Models</a> |
+  <a href="#🎺-statement">Usage</a>
 </p >
 
 <figure>
