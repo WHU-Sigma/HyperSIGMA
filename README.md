@@ -4,7 +4,33 @@
 <a href="链接！"><img src="https://img.shields.io/badge/arXiv-Paper-<color>"></a>
 </p>
 
-<h5 align="center"><em>Sigma members</em></h5>
+ <p align="center">
+    Di Wang<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Meiqi Hu<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Yao Jin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Yuchun Miao<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Jiaqi Yang<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Yichu Xu<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Xiaolei Qin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Jiaqi Ma<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Lingyu Sun<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Chenxing Li<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
+    Hongruixuan Chen<sup></sup>&nbsp;&nbsp;&nbsp;
+    Chengxi Han<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+    Naoto Yokoya<sup></sup>&nbsp;&nbsp;&nbsp;
+    Jing Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+    Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
+    Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
+    Lefei Zhang<sup></sup>&nbsp;&nbsp;&nbsp;
+    Chen Wu<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+    Bo Du<sup>†</sup>&nbsp;&nbsp;&nbsp;
+    Dacheng Tao<sup></sup>&nbsp;&nbsp;&nbsp; 
+    Liangpei Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp;
+    </br></br>
+  
+  </p>
+
 
 <p align="center">
   <a href="#🔥-update">Update</a> |
@@ -19,28 +45,49 @@
 </div>
 </figure>
 
-# 🔥 Update
 
 
-**2024.05.24**
+# Overview
 
-- The paper is post on arxiv!
-
-# 🌞 Overview
-
-This is the official repository of the paper: <a href="链接！！">  HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model </a>
+HyperSIGMA is a vision transformer-based foundation model for HSI interpretation that is scalable to over a billion parameters. </a>
 
 <figure>
-<img src="Figs/pipeline.png">
+<img src="Figs/framework.png">
 <figcaption align = "center"><b>Figure 1: Framework of HyperSIGMA. 
  </b></figcaption>
 </figure>
 
 
-Although researches of large models in the field of remote sensing have developed rapidly. However, there is a lack of large models designed to take into account the high-dimensional characteristics and geographic knowledge of hyperspectral remote sensing imagery. Further, existing foundation models focus on high-level remote sensing vision tasks such as feature recognition, change detection, and scene categorization, ignoring underlying remote sensing vision tasks such as denoising and super-resolution. In addition, the number of parameters in foundation models designed for natural images can achieve the trillion level, while the number of parameters in foundation models for remote sensing images can only reach the 600 million level, resulting in limited model performance.
-To solve these problems, we propose HyperSIGMA, a hyperspectral intelligence comprehension foundation model. We created a large  dataset composed of 447,072 hyperspectral image patches to pretrain the foundation model. To fully extract multidomain information, we designed a spatial and a spectral subnetwork for pretraining, yielding large model with over 1000 million parameters. HyperSIGMA achieves outperformance in a wide range of downstream tasks with hyperspectral imagery, including image classification, target detection, unmixing, change detection, image restoration.
+ 
 
+Extensive experiments on various high-level and low-level HSI tasks demonstrate HyperSIGMA’s versatility and superior representational
+capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
+
+<figure>
+<img src="Figs/radarimg.png">
+<figcaption align = "center"><b>Figure 2:  HyperSIGMA 
+demonstrates superior performance across 16 datasets and 7 tasks,
+including both high-level and low-level hyperspectral tasks, as well as
+multispectral scenes.  
+ </b></figcaption>
+</figure>
+
+# 🔥 Update
+
+
+**2024.06.17**
+
+- The paper is post on arxiv!
+- 
 # 📖 Datasets and Models
+To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
+
+<figure>
+<img src="Figs/dataset.png">
+<figcaption align = "center"><b>Figure 3:   The distribution of HyperGlobal-450K samples across the globe, comprising 1,701 images (1,486 EO-1 and 215 GF-5B) with hundreds of
+spectral bands.  
+ </b></figcaption>
+</figure>
 
 ## Pretrained Models
 
@@ -57,12 +104,7 @@ To solve these problems, we propose HyperSIGMA, a hyperspectral intelligence com
 
 # 🛠️ Usage
 
-## Pretraining Dataset
-
-The pretraining dataset will be released soon.
-
-
-## Perform Pretraining
+## Pretraining
 
 We pretrain the HyperSIGMA with SLURM. This is an example of pretraining spatial MAE with backbone ViT-B:
 
@@ -75,7 +117,7 @@ The training can be recovered by setting `--ft` and `--resume`
 --ft 'True' --resume [path of saved multi-task pretrained model]
 ```
 
-## Perform Finetuning
+## Finetuning
 
 **For image classification**: using 
 ```
@@ -103,6 +145,7 @@ python scripts/change_detection.py
 python scripts/image_restoration.py
 ```
 
+## ⛳ Results
 
 
 ## ⭐ Citation
@@ -120,5 +163,7 @@ This project is for research purpose only. For any other questions please contac
 
 ## 💖 Thanks
 
-* [MAE](https://github.com/facebookresearch/mae), [RSP](https://github.com/ViTAE-Transformer/RSP)
+* [MAE](https://github.com/facebookresearch/mae)
+* [RSP](https://github.com/ViTAE-Transformer/RSP)
+* [RVSA](https://github.com/ViTAE-Transformer/Remote-Sensing-RVSA)
 
