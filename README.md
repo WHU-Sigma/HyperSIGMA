@@ -79,7 +79,7 @@ Extensive experiments on various high-level and low-level HSI tasks demonstrate 
 
 - The paper is post on arxiv!
 
-# 📖 Datasets and Models
+# 📖 Datasets
 To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
 
 <figure>
@@ -90,7 +90,7 @@ To train the foundational model, we collected hyperspectral remote sensing image
 
 **Figure 3. The distribution of HyperGlobal-450K samples across the globe, comprising 1,701 images (1,486 EO-1 and 215 GF-5B) with hundreds of spectral bands.**
 
-## 🚀 Pretrained Models
+# 🚀 Pretrained Models
 
 | Pretrain | Backbone | Model Weights |
 | :------- | :------: | :------ |
