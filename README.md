@@ -75,7 +75,7 @@ Extensive experiments on various high-level and low-level HSI tasks demonstrate 
 # 🔥 Update
 
 
-**2024.06.17**
+**2024.06.18**
 
 - The paper is post on arxiv!
 
