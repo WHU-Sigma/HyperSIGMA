@@ -33,10 +33,10 @@
 
 
 <p align="center">
-  <a href="#🌞-overview">Overview</a> |
-  <a href="#🔥-update">Update</a> |
-  <a href="#📖-datasets-and-models">Datasets and Models</a> |
-  <a href="#🎺-statement">Usage</a>
+  <a href="# Overview">Overview</a> |
+  <a href="# 🔥 Update">Update</a> |
+  <a href="# 🛠️ Usage">Datasets and Models</a> |
+  <a href="# ⭐ Citation">Usage</a>
 </p >
 
 <figure>
@@ -51,26 +51,31 @@
 
 HyperSIGMA is a vision transformer-based foundation model for HSI interpretation that is scalable to over a billion parameters. </a>
 
+
 <figure>
-<img src="Fig/framework.png">
-<figcaption align = "center"><b>Figure 1: Framework of HyperSIGMA. 
- </b></figcaption>
+<div align="center">
+<img src=Fig/framework.png width="60%">
+ <figcaption align = "center"><b>Figure 2:  Framework of HyperSigma.
+</b></figcaption>
+</div>
 </figure>
-
-
  
 
 Extensive experiments on various high-level and low-level HSI tasks demonstrate HyperSIGMA’s versatility and superior representational
 capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
 
 <figure>
-<img src="Fig/radarimg.png">
-<figcaption align = "center"><b>Figure 2:  HyperSIGMA 
+<div align="center">
+<img src=Fig/radarimg.png width="60%">
+ <figcaption align = "center"><b>Figure 2:  HyperSIGMA 
 demonstrates superior performance across 16 datasets and 7 tasks,
 including both high-level and low-level hyperspectral tasks, as well as
-multispectral scenes.  
- </b></figcaption>
+multispectral scenes. 
+</b></figcaption>
+</div>
 </figure>
+
+
 
 # 🔥 Update
 
@@ -147,7 +152,7 @@ python scripts/image_restoration.py
 
 
 
-## ⭐ Citation
+# ⭐ Citation
 
 If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citing:
 
@@ -155,7 +160,7 @@ If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citin
 
 ```
 
-## 🎺 Statement
+# 🎺 Statement
 
 This project is for research purpose only. For any other questions please contact di.wang at [gmail.com](mailto:wd74108520@gmail.com) or [whu.edu.cn](mailto:d_wang@whu.edu.cn).
 
