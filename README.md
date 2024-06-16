@@ -54,7 +54,7 @@ HyperSIGMA is a vision transformer-based foundation model for HSI interpretation
 
 <figure>
 <div align="center">
-<img src=Fig/framework.png width="60%">
+<img src=Fig/framework.png width="80%">
  <figcaption align = "center"><b>Figure 1:  Framework of HyperSigma.
 </b></figcaption>
 </div>
@@ -66,7 +66,7 @@ capability compared to current state-of-the-art methods. It outperforms advanced
 
 <figure>
 <div align="center">
-<img src=Fig/radarimg.png width="60%">
+<img src=Fig/radarimg.png width="80%">
  <figcaption align = "center"><b>Figure 2:  HyperSIGMA 
 demonstrates superior performance across 16 datasets and 7 tasks,
 including both high-level and low-level hyperspectral tasks, as well as
