@@ -52,7 +52,7 @@
 HyperSIGMA is a vision transformer-based foundation model for HSI interpretation that is scalable to over a billion parameters. </a>
 
 <figure>
-<img src="Figs/framework.png">
+<img src="Fig/framework.png">
 <figcaption align = "center"><b>Figure 1: Framework of HyperSIGMA. 
  </b></figcaption>
 </figure>
@@ -64,7 +64,7 @@ Extensive experiments on various high-level and low-level HSI tasks demonstrate 
 capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
 
 <figure>
-<img src="Figs/radarimg.png">
+<img src="Fig/radarimg.png">
 <figcaption align = "center"><b>Figure 2:  HyperSIGMA 
 demonstrates superior performance across 16 datasets and 7 tasks,
 including both high-level and low-level hyperspectral tasks, as well as
@@ -83,7 +83,7 @@ multispectral scenes.
 To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
 
 <figure>
-<img src="Figs/dataset.png">
+<img src="Fig/dataset.png">
 <figcaption align = "center"><b>Figure 3:   The distribution of HyperGlobal-450K samples across the globe, comprising 1,701 images (1,486 EO-1 and 215 GF-5B) with hundreds of
 spectral bands.  
  </b></figcaption>
