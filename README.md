@@ -164,6 +164,5 @@ This project is for research purpose only. For any other questions please contac
 ## 💖 Thanks
 
 * [MAE](https://github.com/facebookresearch/mae)
-* [RSP](https://github.com/ViTAE-Transformer/RSP)
-* [RVSA](https://github.com/ViTAE-Transformer/Remote-Sensing-RVSA)
+* [Swin Transformer](https://github.com/microsoft/Swin-Transformer), [VSA](https://github.com/ViTAE-Transformer/ViTAE-VSA), [RVSA](https://github.com/ViTAE-Transformer/Remote-Sensing-RVSA), [DAT](https://github.com/LeapLabTHU/DAT)
 
