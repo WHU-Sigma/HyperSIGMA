@@ -18,7 +18,7 @@ Predicting the abundance maps and the endmemebers by reconstructing the hyperpse
 <strong> SpatSIGMA_Unmix </strong> <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
-
+**Figure. Framework of HyperSIGMA_Unmix.**
 <figure>
 <div align="center">
 <img src=HyperSIGMA_Unmix.png width="50%">
@@ -26,7 +26,7 @@ Predicting the abundance maps and the endmemebers by reconstructing the hyperpse
 
 <div align='center'>
  
-**Figure 1. Framework of HyperSIGMA.**
+
 
 </div>
 <br>
