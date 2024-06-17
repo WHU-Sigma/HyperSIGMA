@@ -123,10 +123,13 @@ The training can be recovered by setting `--ft` and `--resume`
 ```
 python scripts/image_classification.py【请修改】
 ```
-**For target Detection**: using 
+**For target Detection and Anomaly Detection**: 
+
+1. Preprare coarse detections.
+2. Taking an example of performing target detection on the Mosaic dataset using HyperSIGMA:
 
 ```
-python scripts/target_detection.py【请修改】
+CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --mode  'ss'
 ```
 
 **For unmixing**: 
