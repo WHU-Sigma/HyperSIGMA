@@ -12,9 +12,17 @@
 
 **Paper: ([arXiv 2404.03425](https://arxiv.org/pdf/2404.03425.pdf))** 
 
-[**Overview**](#overview) | [**Get Started**](#%EF%B8%8Flets-get-started) | [**Taken Away**](#%EF%B8%8Fresults-taken-away) | [**Common Issues**](#common-issues) | [**Others**](#q--a) | [**简体中文版**](./README_zh-CN.md)
-
 </div>
+
+<p align="center">
+  <a href="#🔥-update">Update</a> |
+  <a href="#🌞-overview">Overview</a> |
+  <a href="#📖-datasets">Datasets</a> |
+  <a href="#🚀-pretrained-models">Pretrained Models</a> |
+  <a href="#🛠️-usage">Usage</a> |
+  <a href="#🎺-statement">Statement</a>
+</p >
+
 
 <figure>
 <div align="center">
@@ -24,7 +32,7 @@
 
 
 
-# Overview
+# 🌞 Overview
 
 **HyperSIGMA** is the first billion-level foundation model specifically designed for HSI interpretation. To tackle the
 spectral and spatial redundancy challenges in HSIs, we introduce a novel sparse sampling attention (SSA) mechanism, which effectively
