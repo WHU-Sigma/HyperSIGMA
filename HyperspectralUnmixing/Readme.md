@@ -13,5 +13,5 @@ trainval.py <br>
 <strong> SpatSIGMA_Unmix </strong> <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
-![SpatSIGMA_Unmix](Fig/HyperSIGMA_Unmix.png "The framework of SpatSIGMA_Unmix")
+![SpatSIGMA_Unmix](HyperSIGMA_Unmix.png "The framework of SpatSIGMA_Unmix")
 
