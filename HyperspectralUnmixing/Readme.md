@@ -13,8 +13,6 @@ trainval.py <br>
 <strong> SpatSIGMA_Unmix </strong> <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
-### The framework of SpatSIGMA_Unmix
-
 
 <figure>
 <div align="center">
