@@ -98,15 +98,35 @@ To train the foundational model, we collected hyperspectral remote sensing image
 
 ## Pretraining
 
-We pretrain the HyperSIGMA with SLURM. This is an example of pretraining spatial MAE with backbone ViT-B:
+We pretrain the HyperSIGMA with SLURM. This is an example of pretraining the large version of Spatial ViT:
 
 ```
-srun -J mtp -p gpu --gres=dcu:4 --ntasks=32 --ntasks-per-node=4 --cpus-per-task=8 --kill-on-bad-exit=1 \
-python main_pretrain.py 
+srun -J spatmae -p xahdnormal --gres=dcu:4 --ntasks=64 --ntasks-per-node=4 --cpus-per-task=8 --kill-on-bad-exit=1 \
+python main_pretrain_Spat.py \
+--model 'spat_mae_l' --norm_pix_loss \
+--data_path [pretrain data path] \
+--output_dir [model saved patch] \
+--log_dir [log saved path] \
+--blr 1.5e-4 --batch_size 32 --gpu_num 64 --port 60001
 ```
-The training can be recovered by setting `--ft` and `--resume`
+
+Another example of pretraining the huge version of Spectral ViT:
+
 ```
---ft 'True' --resume [path of saved multi-task pretrained model]
+srun -J specmae -p xahdnormal --gres=dcu:4 --ntasks=128 --ntasks-per-node=4 --cpus-per-task=8 --kill-on-bad-exit=1 \
+python main_pretrain_Spec.py \
+--model 'spec_mae_h' --norm_pix_loss \
+--data_path [pretrain data path] \
+--output_dir [model saved patch] \
+--log_dir [log saved path] \
+--blr 1.5e-4 --batch_size 16 --gpu_num 128 --port 60004  --epochs 1600 --mask_ratio 0.75 \
+--use_ckpt 'True'
+```
+
+The training can be recovered by setting `--resume`
+
+```
+--resume [path of saved model]
 ```
 
 ## Finetuning
