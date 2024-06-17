@@ -5,7 +5,7 @@
 </p>
 
  <p align="center">
-    [Di Wang](https://dotwang.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+    [Di Wang]<sup>∗</sup>(https://dotwang.github.io/)&nbsp;&nbsp;&nbsp;
     [Meiqi Hu](https://meiqihu.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
     [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
     [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
