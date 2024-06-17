@@ -132,7 +132,6 @@ The training can be recovered by setting `--resume`
 
 ## Finetuning
 
-<<<<<<< HEAD
 **Image Classification**: 
 
 Using the following command:
@@ -140,13 +139,6 @@ Using the following command:
 python scripts/image_classification.py【请修改】
 ```
 **Target Detection & Anomaly Detection**: 
-=======
-**Image Classification**: using 
-```
-python scripts/image_classification.py【请修改】
-```
-**Target Detection and Anomaly Detection**: 
->>>>>>> 0d3d4240bd562780e6fa3660f74422efee271559
 
 Step1: Preprare coarse detections.
 
@@ -156,7 +148,6 @@ Step2: Taking an example of performing target detection on the Mosaic dataset us
 CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --mode  'ss'
 ```
 
-<<<<<<< HEAD
 **Change Detection**: 
 
 Using the following command:
@@ -165,21 +156,6 @@ python scripts/change_detection.py
 ```
 
 **Spectral Unmixing**: 
-=======
-**For Change Detection**: 
-
-```
-python scripts/change_detection.py
-```
-
-**Spectral Unmixing**: 
-
-```
-python scripts/unmixing.py【请修改】
-```
-
-**Denoising**: 
->>>>>>> 0d3d4240bd562780e6fa3660f74422efee271559
 
 Using the following command:
 ```
