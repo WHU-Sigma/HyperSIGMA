@@ -14,6 +14,6 @@ trainval.py <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 <figure>
 <div align="center">
-<img src=Fig/HyperSIGMA_Unmix.png width="20%">
+<img src=HyperSIGMA/Fig/HyperSIGMA_Unmix.png width="20%">
 </div>
 </figure>
