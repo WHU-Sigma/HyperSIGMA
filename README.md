@@ -15,12 +15,12 @@
 </div>
 
 <p align="center">
-  <a href="#🔥-update">Update</a> |
-  <a href="#🌞-overview">Overview</a> |
-  <a href="#📖-datasets">Datasets</a> |
-  <a href="#🚀-pretrained-models">Pretrained Models</a> |
-  <a href="#🛠️-usage">Usage</a> |
-  <a href="#🎺-statement">Statement</a>
+  <a href="#-update">Update</a> |
+  <a href="#-overview">Overview</a> |
+  <a href="#-datasets">Datasets</a> |
+  <a href="#-pretrained-models">Pretrained Models</a> |
+  <a href="#-usage">Usage</a> |
+  <a href="#-statement">Statement</a>
 </p >
 
 
@@ -95,7 +95,7 @@ To train the foundational model, we collected hyperspectral remote sensing image
 
 
 
-# 🛠️ Usage
+# 🔨 Usage
 
 ## Pretraining
 
