@@ -152,14 +152,14 @@ CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --
 
 Using the following command:
 ```
-python scripts/change_detection.py
+python ChangeDetection/trainval.py
 ```
 
 ***Spectral Unmixing***: 
 
 Using the following command:
 ```
-python scripts/unmixing.py【请修改】
+python Hyperspectral/trainval.py【请修改】
 ```
 
 ***Denoising***: 
