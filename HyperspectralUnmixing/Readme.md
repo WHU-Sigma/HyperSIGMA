@@ -7,7 +7,8 @@ This repo contains the Urban dataset. You can download it [here](https://pan.bai
 
 ## 🔨 Usage
 Predicting the abundance maps and the endmemebers by reconstructing the hyperpsectral patches with the tailored auto-encoder based model. <br>
-trainval.py <br>
+
+<strong> trainval.py </strong> <br>
 
 ## 🔴model: <br>
 <strong> SpatSIGMA_Unmix </strong> <br>
