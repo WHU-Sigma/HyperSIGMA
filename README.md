@@ -19,7 +19,7 @@ Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
 [Hongruixuan Chen](https://chrx97.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
 [Chengxi Han](https://chengxihan.github.io/)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
 [Naoto Yokoya](https://naotoyokoya.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
-[Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&view_op=list_works&sortby=pubdate)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+[Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
 Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
 Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
 [Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp;
