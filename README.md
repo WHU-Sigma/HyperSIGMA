@@ -1,35 +1,21 @@
-<h1 align="center"> HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model </h1>
+<div align="center">
+<h1 align="center">HyperSIGMA</h1>
 
-<p align="center">
-<a href="链接！"><img src="https://img.shields.io/badge/arXiv-Paper-<color>"></a>
-</p>
+<h3>HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model</h3>
 
- <p align="center">
-    Di Wang<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Meiqi Hu<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Yao Jin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Yuchun Miao<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Jiaqi Yang<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Yichu Xu<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Xiaolei Qin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Jiaqi Ma<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Lingyu Sun<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Chenxing Li<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
-    Hongruixuan Chen<sup></sup>&nbsp;&nbsp;&nbsp;
-    Chengxi Han<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    Naoto Yokoya<sup></sup>&nbsp;&nbsp;&nbsp;
-    Jing Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
-    Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
-    Lefei Zhang<sup></sup>&nbsp;&nbsp;&nbsp;
-    Chen Wu<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    Bo Du<sup>†</sup>&nbsp;&nbsp;&nbsp;
-    Dacheng Tao<sup></sup>&nbsp;&nbsp;&nbsp; 
-    Liangpei Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp;
-    </br></br>
-  
-  </p>
+
+[Di Wang](https://dotwang.github.io/)<sup>1 ∗</sup>, [Meiqi Hu](https://meiqihu.github.io/)<sup>1 ∗</sup>, [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>1 ∗</sup>, [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>, [Jiaqi Yang](https://jqyang22.github.io/)<sup>1 ∗</sup>, [Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>1 ∗</sup>, Xiaolei Qin<sup>1 ∗</sup>, [Jiaqi Ma](https://leonmakise.github.io/)<sup>1 ∗</sup>, Lingyu Sun<sup>1 ∗</sup>, Chenxing Li<sup>1 ∗</sup>, Chuan Fu<sup>2</sup>, [Hongruixuan Chen](https://chrx97.com/)<sup>3</sup>, [Chengxi Han](https://chengxihan.github.io/)<sup>1 †</sup>, [Naoto Yokoya](https://naotoyokoya.com/)<sup>3</sup>, [Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&hl=en)<sup>1 †</sup>, Minqiang Xu<sup></sup>, Lin Liu<sup></sup>, [Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup>1</sup>, [Chen Wu](https://scholar.google.com/citations?user=DbTt_CcAAAAJ&hl=en)<sup>1 †</sup>, [Bo Du](https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=en)<sup>1 †</sup>, [Dacheng Tao](https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en)<sup></sup>, [Liangpei Zhang](https://scholar.google.com/citations?user=vzj2hcYAAAAJ&hl=en)<sup>1 †</sup>
+
+<sup>1</sup> Wuhan University, <sup>2</sup> Chongqing University,  <sup>3</sup> The University of Tokyo.
+
+<sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
+
+**Paper: ([arXiv 2404.03425](https://arxiv.org/pdf/2404.03425.pdf))** 
+
+[**Overview**](#overview) | [**Get Started**](#%EF%B8%8Flets-get-started) | [**Taken Away**](#%EF%B8%8Fresults-taken-away) | [**Common Issues**](#common-issues) | [**Others**](#q--a) | [**简体中文版**](./README_zh-CN.md)
+
+</div>
+
 
   
 <figure>
@@ -124,10 +110,13 @@ The training can be recovered by setting `--ft` and `--resume`
 ```
 python scripts/image_classification.py【请修改】
 ```
-**For target Detection**: using 
+**For Target Detection and Anomaly Detection**: 
+
+1. Preprare coarse detections.
+2. Taking an example of performing target detection on the Mosaic dataset using HyperSIGMA:
 
 ```
-python scripts/target_detection.py【请修改】
+CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --mode  'ss'
 ```
 
 **For unmixing**: 
