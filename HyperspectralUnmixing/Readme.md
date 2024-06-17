@@ -18,7 +18,7 @@ trainval.py <br>
 
 <figure>
 <div align="center">
-<img src=HyperSIGMA_Unmix.png width="80%">
+<img src=HyperSIGMA_Unmix.png width="50%">
 </div>
 
 <div align='center'>
