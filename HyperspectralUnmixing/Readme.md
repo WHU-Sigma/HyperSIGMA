@@ -14,6 +14,6 @@ trainval.py <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
 ### The framework of SpatSIGMA_Unmix
-![SpatSIGMA_Unmix](HyperSIGMA_Unmix.png  =100x100)
+![SpatSIGMA_Unmix](HyperSIGMA_Unmix.png){:height="50%" width="50%"}
 
 
