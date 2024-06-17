@@ -14,6 +14,18 @@ trainval.py <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
 ### The framework of SpatSIGMA_Unmix
-![SpatSIGMA_Unmix](HyperSIGMA_Unmix.png){:height="50%" width="50%"}
+
+
+<figure>
+<div align="center">
+<img src=HyperSIGMA_Unmix.png width="80%">
+</div>
+
+<div align='center'>
+ 
+**Figure 1. Framework of HyperSIGMA.**
+
+</div>
+<br>
 
 
