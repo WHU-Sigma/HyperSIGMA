@@ -132,13 +132,13 @@ The training can be recovered by setting `--resume`
 
 ## Finetuning
 
-**Image Classification**: 
+***Image Classification***: 
 
 Using the following command:
 ```
 python scripts/image_classification.py【请修改】
 ```
-**Target Detection & Anomaly Detection**: 
+***Target Detection & Anomaly Detection***: 
 
 Step1: Preprare coarse detections.
 
@@ -148,26 +148,26 @@ Step2: Taking an example of performing target detection on the Mosaic dataset us
 CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --mode  'ss'
 ```
 
-**Change Detection**: 
+***Change Detection***: 
 
 Using the following command:
 ```
 python scripts/change_detection.py
 ```
 
-**Spectral Unmixing**: 
+***Spectral Unmixing***: 
 
 Using the following command:
 ```
 python scripts/unmixing.py【请修改】
 ```
 
-**Denoising**: 
+***Denoising***: 
 
 Please refer to [Denoising-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising/readme.md).
 
 
-**Super-Resolution**: 
+***Super-Resolution***: 
 
 Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution/readme.md).
 
