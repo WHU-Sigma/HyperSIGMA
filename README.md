@@ -16,8 +16,6 @@
 
 </div>
 
-<sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
-  
 <figure>
 <div align="center">
 <img src=Fig/logo.png width="20%">
