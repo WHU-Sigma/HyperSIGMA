@@ -159,5 +159,5 @@ If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citin
 This project is for research purpose only. For any other questions please contact di.wang at [gmail.com](mailto:wd74108520@gmail.com) or [whu.edu.cn](mailto:d_wang@whu.edu.cn).
 
 
-## 💖 Thanks
+# 💖 Thanks
 This project is based on [MAE](https://github.com/facebookresearch/mae), [Swin Transformer](https://github.com/microsoft/Swin-Transformer), [VSA](https://github.com/ViTAE-Transformer/ViTAE-VSA), [RVSA](https://github.com/ViTAE-Transformer/Remote-Sensing-RVSA), [DAT](https://github.com/LeapLabTHU/DAT), [HTD-IRN](https://github.com/shendb2022/HTD-IRN), [GT-HAD](https://github.com/jeline0110/GT-HAD) and [MSDformer](https://github.com/Tomchenshi/MSDformer). Thanks for their wonderful work!
