@@ -31,6 +31,11 @@
 </figure>
 
 
+# 🔥 Update
+
+**2024.06.18**
+
+- The paper is post on arxiv!
 
 # 🌞 Overview
 
@@ -64,12 +69,6 @@ Extensive experiments on various high-level and low-level HSI tasks demonstrate 
 **Figure 2. HyperSIGMA demonstrates superior performance across 16 datasets and 7 tasks, including both high-level and low-level hyperspectral tasks, as well as multispectral scenes.** 
 
 
-# 🔥 Update
-
-
-**2024.06.18**
-
-- The paper is post on arxiv!
 
 # 📖 Datasets
 To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
@@ -112,11 +111,11 @@ The training can be recovered by setting `--ft` and `--resume`
 
 ## Finetuning
 
-**For image classification**: using 
+**Image Classification**: using 
 ```
 python scripts/image_classification.py【请修改】
 ```
-**For Target Detection and Anomaly Detection**: 
+**Target Detection and Anomaly Detection**: 
 
 1. Preprare coarse detections.
 2. Taking an example of performing target detection on the Mosaic dataset using HyperSIGMA:
@@ -125,23 +124,24 @@ python scripts/image_classification.py【请修改】
 CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --mode  'ss'
 ```
 
-**For unmixing**: 
+**For Change Detection**: 
+
+```
+python scripts/change_detection.py
+```
+
+**Spectral Unmixing**: 
 
 ```
 python scripts/unmixing.py【请修改】
 ```
 
-**For change detection**: 
-```
-python scripts/change_detection.py
-```
-
-**For Image Denoising**: 
+**Denoising**: 
 
 Please refer to [README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising/readme.md).
 
 
-**For Image Super-Resolution**: 
+**Super-Resolution**: 
 
 Please refer to [README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution/readme.md).
 
