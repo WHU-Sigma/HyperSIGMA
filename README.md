@@ -8,26 +8,26 @@
 [Di Wang](https://dotwang.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
 [Meiqi Hu](https://meiqihu.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
 [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    [Jiaqi Yang](https://jqyang22.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    [Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Xiaolei Qin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    [Jiaqi Ma](https://leonmakise.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Lingyu Sun<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Chenxing Li<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-    Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
-    [Hongruixuan Chen](https://chrx97.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
-    [Chengxi Han](https://chengxihan.github.io/)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    [Naoto Yokoya](https://naotoyokoya.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
-    Jing Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
-    Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
-    [Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp;
-    Chen Wu<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-    Bo Du<sup>†</sup>&nbsp;&nbsp;&nbsp;
-    Dacheng Tao<sup></sup>&nbsp;&nbsp;&nbsp; 
-    Liangpei Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp;
-    </br></br>
+[Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+[Jiaqi Yang](https://jqyang22.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+[Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+Xiaolei Qin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+[Jiaqi Ma](https://leonmakise.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+Lingyu Sun<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+Chenxing Li<sup>∗</sup>&nbsp;&nbsp;&nbsp;
+Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
+[Hongruixuan Chen](https://chrx97.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
+[Chengxi Han](https://chengxihan.github.io/)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+[Naoto Yokoya](https://naotoyokoya.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
+[Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&view_op=list_works&sortby=pubdate)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
+Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
+[Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp;
+[Chen Wu](https://scholar.google.com/citations?user=DbTt_CcAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
+[Bo Du](https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp;
+[Dacheng Tao](https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp; 
+[Liangpei Zhang](https://scholar.google.com/citations?user=vzj2hcYAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp;
+</br></br>
 
 
   
