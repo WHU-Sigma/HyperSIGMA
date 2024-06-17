@@ -1,33 +1,20 @@
-<h1 align="center"> HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model </h1>
+<div align="center">
+<h1 align="center">HyperSIGMA</h1>
 
-<p align="center">
-<a href="链接！"><img src="https://img.shields.io/badge/arXiv-Paper-<color>"></a>
-</p>
+<h3>HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model</h3>
 
 
-[Di Wang](https://dotwang.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Meiqi Hu](https://meiqihu.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Jiaqi Yang](https://jqyang22.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-Xiaolei Qin<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-[Jiaqi Ma](https://leonmakise.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-Lingyu Sun<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-Chenxing Li<sup>∗</sup>&nbsp;&nbsp;&nbsp;
-Chuan Fu<sup></sup>&nbsp;&nbsp;&nbsp;
-[Hongruixuan Chen](https://chrx97.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
-[Chengxi Han](https://chengxihan.github.io/)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-[Naoto Yokoya](https://naotoyokoya.com/)<sup></sup>&nbsp;&nbsp;&nbsp;
-[Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-Minqiang Xu<sup></sup>&nbsp;&nbsp;&nbsp; 
-Lin Liu<sup></sup>&nbsp;&nbsp;&nbsp; 
-[Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp;
-[Chen Wu](https://scholar.google.com/citations?user=DbTt_CcAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp; 
-[Bo Du](https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp;
-[Dacheng Tao](https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en)<sup></sup>&nbsp;&nbsp;&nbsp; 
-[Liangpei Zhang](https://scholar.google.com/citations?user=vzj2hcYAAAAJ&hl=en)<sup>†</sup>&nbsp;&nbsp;&nbsp;
-</br></br>
+[Di Wang](https://dotwang.github.io/)<sup>∗</sup>, [Meiqi Hu](https://meiqihu.github.io/)<sup>∗</sup>, [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>, [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>, [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>, [Jiaqi Yang](https://jqyang22.github.io/)<sup>∗</sup>, [Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>∗</sup>, Xiaolei Qin<sup>∗</sup>, [Jiaqi Ma](https://leonmakise.github.io/)<sup>∗</sup>, Lingyu Sun<sup>∗</sup>, Chenxing Li<sup>∗</sup>, Chuan Fu<sup></sup>, [Hongruixuan Chen](https://chrx97.com/)<sup></sup>, [Chengxi Han](https://chengxihan.github.io/)<sup>†</sup>, [Naoto Yokoya](https://naotoyokoya.com/)<sup></sup>, [Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&hl=en)<sup>†</sup>, Minqiang Xu<sup></sup>, Lin Liu<sup></sup>, [Lefei Zhang](https://scholar.google.com/citations?user=BLKHwNwAAAAJ&hl=en)<sup></sup>, [Chen Wu](https://scholar.google.com/citations?user=DbTt_CcAAAAJ&hl=en)<sup>†</sup>, [Bo Du](https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=en)<sup>†</sup>, [Dacheng Tao](https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en)<sup></sup>, [Liangpei Zhang](https://scholar.google.com/citations?user=vzj2hcYAAAAJ&hl=en)<sup>†</sup>
+
+<sup>1</sup> Wuhan University, <sup>2</sup> RIKEN AIP,  <sup>3</sup> Wuhan University.
+
+<sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
+
+**Paper: ([arXiv 2404.03425](https://arxiv.org/pdf/2404.03425.pdf))** 
+
+[**Overview**](#overview) | [**Get Started**](#%EF%B8%8Flets-get-started) | [**Taken Away**](#%EF%B8%8Fresults-taken-away) | [**Common Issues**](#common-issues) | [**Others**](#q--a) | [**简体中文版**](./README_zh-CN.md)
+
+</div>
 
 
   
