@@ -136,11 +136,14 @@ python scripts/unmixing.py【请修改】
 python scripts/change_detection.py
 ```
 
-**For image restoration**: 
-```
-python scripts/image_restoration.py
-```
+**For Image Denoising**: 
 
+Please refer to [README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising/readme.md).
+
+
+**For Image Super-Resolution**: 
+
+Please refer to [README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution/readme.md).
 
 
 # ⭐ Citation
