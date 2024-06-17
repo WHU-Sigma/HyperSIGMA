@@ -4,8 +4,8 @@
 <a href="链接！"><img src="https://img.shields.io/badge/arXiv-Paper-<color>"></a>
 </p>
 
- <p align="center">
-    [Di Wang]<sup>∗</sup>(https://dotwang.github.io/)&nbsp;&nbsp;&nbsp;
+
+    [Di Wang](https://dotwang.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
     [Meiqi Hu](https://meiqihu.github.io/)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
     [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
     [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>∗</sup>&nbsp;&nbsp;&nbsp;
@@ -28,8 +28,7 @@
     Dacheng Tao<sup></sup>&nbsp;&nbsp;&nbsp; 
     Liangpei Zhang<sup>†</sup>&nbsp;&nbsp;&nbsp;
     </br></br>
-  
-  </p>
+
 
   
 <figure>
