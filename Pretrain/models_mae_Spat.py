@@ -468,7 +468,7 @@ class SpatMAE(nn.Module):
         return loss, pred, mask
 
 
-def spat_mae_b_rvsa(args, inchannels=3):
+def spat_mae_b(args, inchannels=3):
     backbone = SpatMAE(
         img_size=args.image_size,
         in_chans=inchannels,
@@ -490,7 +490,7 @@ def spat_mae_b_rvsa(args, inchannels=3):
     return backbone
 
 
-def spat_mae_l_rvsa(args, inchannels=3):
+def spat_mae_l(args, inchannels=3):
     backbone = SpatMAE(
         img_size=args.image_size,
         in_chans=inchannels,
@@ -512,7 +512,7 @@ def spat_mae_l_rvsa(args, inchannels=3):
     return backbone
 
 
-def spat_mae_h_rvsa(args, inchannels=3):
+def spat_mae_h(args, inchannels=3):
     backbone = SpatMAE(
         img_size=args.image_size,
         in_chans=inchannels,

@@ -556,7 +556,7 @@ class SpecMAE(nn.Module):
         loss = self.forward_loss(imgs, pred, mask)
         return loss, pred, mask
 
-def spec_mae_b_rvsa(args, inchannels=3):
+def spec_mae_b(args, inchannels=3):
     backbone = SpecMAE(
         NUM_TOKENS=args.num_tokens,
         img_size=args.image_size,
@@ -579,7 +579,7 @@ def spec_mae_b_rvsa(args, inchannels=3):
     return backbone
 
 
-def spec_mae_l_rvsa(args, inchannels=3):
+def spec_mae_l(args, inchannels=3):
     backbone = SpecMAE(
         NUM_TOKENS=args.num_tokens,
         img_size=args.image_size,
@@ -602,7 +602,7 @@ def spec_mae_l_rvsa(args, inchannels=3):
     return backbone
 
 
-def spec_mae_h_rvsa(args, inchannels=3):
+def spec_mae_h(args, inchannels=3):
     backbone = SpecMAE(
         NUM_TOKENS=args.num_tokens,
         img_size=args.image_size,
