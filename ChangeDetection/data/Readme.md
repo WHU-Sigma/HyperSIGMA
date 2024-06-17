@@ -19,13 +19,12 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 
 
 ## 🔨 Usage
-The binary change detection map <br>
 
 <strong> trainval.py </strong> <br>
 
 ## 🔴model: <br>
-<strong> SpatSIGMA_Unmix </strong> <br>
-<strong> HyperSIGMA_Unmix </strong> <br>
+<strong> SpatSIGMA_CD </strong> <br>
+<strong> HyperSIGMA_CD </strong> <br>
 
 
 <figure>
@@ -35,7 +34,7 @@ The binary change detection map <br>
 
 <div align='center'>
  
-**Figure 1. Framework of HyperSIGMA.**
+**Figure 1. Framework of HyperSIGMA_CD.**
 
 </div>
 <br>
