@@ -85,7 +85,7 @@ To train the foundational model, we collected hyperspectral remote sensing image
 # 🚀 Pretrained Models
 
 | Pretrain | Backbone | Model Weights |
-| :------- | :------: | :------ |
+| :------- | :------: | :------: |
 | Spatial_MAE | ViT-B | [Baidu](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc)  | 
 | Spatial_MAE | ViT-L |  [Baidu](https://pan.baidu.com/s/11iwHFh8sfg9S-inxOYtJlA?pwd=d2qs)  |
 | Spatial_MAE | ViT-H | [Baidu](https://pan.baidu.com/s/1gV9A_XmTCBRw90zjSt90ZQ?pwd=knuu) | 
