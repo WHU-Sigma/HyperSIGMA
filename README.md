@@ -9,6 +9,7 @@
 <sup>1</sup> Wuhan University, <sup>2</sup> Chongqing University,  <sup>3</sup> The University of Tokyo, <sup>4</sup> National Engineering Research Center of Speech and Language Information Processing, <sup>5</sup> Nanyang Technological University.
 
 <sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
+<sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
 
 
 <!-- **Paper: ([arXiv 2404.03425](https://arxiv.org/pdf/2404.03425.pdf))**  -->
