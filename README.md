@@ -11,7 +11,7 @@
 <sup>∗</sup> Equal contribution, <sup>†</sup> Corresponding author
 
 
-[![arXiv paper](https://img.shields.io/badge/arXiv-2406.11519-b31b1b.svg)](https://arxiv.org/pdf/2406.11519)
+[![arXiv paper](https://img.shields.io/badge/arXiv-2406.11519-b31b1b.svg)](https://arxiv.org/abs/2406.11519)
 
 </div>
 
