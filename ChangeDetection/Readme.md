@@ -33,9 +33,9 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 ## 🔨 Usage
 <strong> trainval.py </strong> <br>
 > Note: 1) please download the pretrained checkpoint pth <br>
->     'spat-vit-base-ultra-checkpoint-1599.pth' (https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc)<br>
->     'spec-vit-base-ultra-checkpoint-1599.pth' (https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y)<br>
->     2) please download the change detection dataset (https://pan.baidu.com/s/1Ts3GtBLa_AC3w6jVUYj3wg?pwd=xub5#list/path=%2F)<br>
+>     ['spat-vit-base-ultra-checkpoint-1599.pth'](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc)<br>
+>     ['spec-vit-base-ultra-checkpoint-1599.pth'](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y)<br>
+>     2) please download the [change detection dataset](https://pan.baidu.com/s/1Ts3GtBLa_AC3w6jVUYj3wg?pwd=xub5#list/path=%2F)<br>
 >     3) please put the pretrained model file and dataset in the file './data/',<br>
 >     Please see func.get_args for more details <br>
 
