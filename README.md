@@ -174,7 +174,7 @@ If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citin
 
 # 🎺 Statement
 
-This project is for research purpose only. For any other questions please contact di.wang at [gmail.com](mailto:wd74108520@gmail.com) or [whu.edu.cn](mailto:d_wang@whu.edu.cn).
+For any other questions please contact di.wang at [gmail.com](mailto:wd74108520@gmail.com) or [whu.edu.cn](mailto:d_wang@whu.edu.cn), and chengxi.han at [gmail.com](hanchengxiwhu@gmail.com).
 
 
 # 💖 Thanks
