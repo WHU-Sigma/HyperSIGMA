@@ -35,6 +35,6 @@ Predicting the abundance maps and the endmemebers by reconstructing the hyperpse
 <br>
 
 # 💖 Thanks
-This project is partly based on [CNNAEU](https://ieeexplore.ieee.org/document/9096565) and [DeepTrans](https://ieeexplore.ieee.org/document/9848995). <br>
+This project is partly based on [CNNAEU](https://ieeexplore.ieee.org/document/9096565) and [DeepTrans](https://github.com/preetam22n/DeepTrans-HSU). <br>
 Thanks for their wonderful work! <br>
 
