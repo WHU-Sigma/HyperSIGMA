@@ -17,7 +17,7 @@ Predicting the abundance maps and the endmemebers by reconstructing the hyperpse
 
 
 
-## 🔴model: <br>
+## 🔴 Model: <br>
 <strong> SpatSIGMA_Unmix </strong> <br>
 <strong> HyperSIGMA_Unmix </strong> <br>
 
