@@ -230,7 +230,8 @@ if __name__ == '__main__':
     # Note: 1) please download the pretrained checkpoint pth
     # 'spat-vit-base-ultra-checkpoint-1599.pth' (https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc)
     # 'spec-vit-base-ultra-checkpoint-1599.pth' (https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y)
-    # 2) please put the pretrained model file in the file './data/',
+    # Note: 2) please download the change detection dataset (https://pan.baidu.com/s/1Ts3GtBLa_AC3w6jVUYj3wg?pwd=xub5#list/path=%2F)
+    # 2) please put the pretrained model file and dataset in the file './data/',
     # Please see func.get_args for more details
 
     mode = 'Spat_Pretraining'# '[Spat_Pretraining', 'Spat_Spec_Pretraining']
