@@ -133,10 +133,8 @@ The training can be recovered by setting `--resume`
 
 ***Image Classification***: 
 
-Using the following command:
-```
-python scripts/image_classification.py【请修改】
-```
+Please refer to [ImageClassification-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ImageClassification)
+
 ***Target Detection & Anomaly Detection***: 
 
 Please refer to [HyperspectralDetection-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/main/HyperspectralDetection).
