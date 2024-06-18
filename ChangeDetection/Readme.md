@@ -58,7 +58,9 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 <br>
 
 
-
+# 💖 Thanks
+We would like to thank [SST-Former](https://ieeexplore.ieee.org/document/9870837). <br>
+Thanks for their wonderful work! <br>
 
 
 
