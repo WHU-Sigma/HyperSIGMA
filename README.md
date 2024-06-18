@@ -159,7 +159,7 @@ python ChangeDetection/trainval.py
 
 Using the following command:
 ```
-python HyperspectralUnmix/trainval.py【请修改】
+python HyperspectralUnmix/trainval.py
 ```
 
 ***Denoising***: 
