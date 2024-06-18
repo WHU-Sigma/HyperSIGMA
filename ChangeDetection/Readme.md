@@ -46,7 +46,7 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 
 <div align='center'>
  
-**Figure 1. Framework of HyperSIGMA_CD.**
+**Figure. Framework of HyperSIGMA_CD.**
 
 </div>
 <br>
