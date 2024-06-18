@@ -9,8 +9,8 @@ This repo contains the Urban dataset. You can download it [here](https://pan.bai
 Predicting the abundance maps and the endmemebers by reconstructing the hyperpsectral patches with the tailored auto-encoder based model. <br>
 <strong> trainval.py </strong> <br>
 > Note: 1) please download the pretrained checkpoint pth :<br>
->     ['Spatial_MAE ViT-B'](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc); <br>
->     ['Spectral_MAE ViT-B'](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y);<br>
+>     [Spatial_MAE ViT-B](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc); <br>
+>     [Spectral_MAE ViT-B](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y);<br>
 >     2) please download the [hyperspectral unmixing dataset](https://pan.baidu.com/s/1goRUhWfNuvrPXxJI1tYC0A?pwd=fsh4);<br>
 >     3) please put the pretrained model file and dataset in the file './data/';<br>
 >     Please see func.get_args for more details .<br>
