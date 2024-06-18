@@ -149,18 +149,14 @@ CUDA_VISIBLE_DEVICES=0 python Target_Detection/trainval.py --dataset 'mosaic' --
 ```
 
 ***Change Detection***: 
+Please refer to [ChangeDetection](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ChangeDetection)
 
-Using the following command:
-```
-python ChangeDetection/trainval.py
-```
+
 
 ***Spectral Unmixing***: 
+Please refer to [HyperspectralUnmixing](https://github.com/WHU-Sigma/HyperSIGMA/blob/main/HyperspectralUnmixing/Readme.md).
 
-Using the following command:
-```
-python HyperspectralUnmix/trainval.py
-```
+
 
 ***Denoising***: 
 
