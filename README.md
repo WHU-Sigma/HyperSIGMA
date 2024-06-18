@@ -133,7 +133,7 @@ The training can be recovered by setting `--resume`
 
 ***Image Classification***: 
 
-Please refer to [ImageClassification-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ImageClassification)
+Please refer to [ImageClassification-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ImageClassification).
 
 ***Target Detection & Anomaly Detection***: 
 
