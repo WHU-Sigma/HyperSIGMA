@@ -2,7 +2,8 @@
 <strong> Hyperspectral unmixing </strong>  task aims to address the complex spectral mixtures in hyperspectral data by decomposing each pixel’s spectral signature into pure spectral signatures (<strong> endmembers </strong>) and their corresponding proportions (<strong> abundances </strong>).<br>
 
 ## 🌷 Dataset
-This repo contains the Urban dataset. You can download it [here](https://pan.baidu.com/s/1Ts3GtBLa_AC3w6jVUYj3wg?pwd=xub5). <br>
+This repo contains the Urban dataset. You can download it [here](https://pan.baidu.com/s/1goRUhWfNuvrPXxJI1tYC0A?pwd=fsh4). <br>
+
 
 ## 🔨 Usage
 Predicting the abundance maps and the endmemebers by reconstructing the hyperpsectral patches with the tailored auto-encoder based model. <br>
