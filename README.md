@@ -35,7 +35,8 @@
 
 **2024.06.18**
 
-- The paper is post on arxiv!
+- The paper is post on arxiv!**([arXiv 2404.03425](https://arxiv.org/pdf/2404.03425.pdf))** 
+
 
 # 🌞 Overview
 
