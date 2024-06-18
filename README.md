@@ -164,7 +164,12 @@ Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b
 If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citing:
 
 ```
-
+@article{hypersigma,
+  title={HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model},
+  author={Wang, Di and Hu, Meiqi and Jin, Yao and Miao, Yuchun and Yang, Jiaqi and Xu, Yichu and Qin, Xiaolei and Ma, Jiaqi and Sun, Lingyu and Li, Chenxing and Fu, Chuan and Chen, Hongruixuan and Han, Chengxi and Yokoya, Naoto and Zhang, Jing and Xu, Minqiang and Liu, Lin and Zhang, Lefei and Wu, Chen and Du, Bo and Tao, Dacheng and Zhang, Liangpei},
+  journal={arXiv preprint arXiv:2406.11519},
+  year={2024}
+}
 ```
 
 # 🎺 Statement
