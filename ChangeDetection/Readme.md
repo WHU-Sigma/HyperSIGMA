@@ -17,7 +17,7 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 | BayArea | BayArea.mat | [Baidu](https://pan.baidu.com/s/1N-Pngno1iQnlPcKIH2NCBQ?pwd=8ju7) | 
 | Santa Barbara | Barbara.mat |  [Baidu](https://pan.baidu.com/s/1DqxH8_9D6D3AEQJhwB60ww?pwd=z85q)|
 
-##s 🚀 Pretrained Models
+## 🚀 Pretrained Models
 
 | Pretrain | Backbone | Model Weights |
 | :------- | :------: | :------ |
