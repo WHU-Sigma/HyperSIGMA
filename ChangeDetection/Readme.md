@@ -1,6 +1,6 @@
 
 # Get started
-<strong> hyperspectral change detection</strong> detects the changed and unchanded area from multi-temporal hyperspectral images.<br>
+<strong> Hyperspectral change detection</strong> detects the changed and unchanded area from multi-temporal hyperspectral images.<br>
 
 ## 🌷 Dataset
 This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You can download it [here](https://pan.baidu.com/s/1Ts3GtBLa_AC3w6jVUYj3wg?pwd=xub5). <br>
@@ -40,7 +40,7 @@ This repo contains the Hermiston, Farmland, Barbara, and BayArea dataset. You ca
 >     Please see func.get_args for more details .<br>
 
 
-## 🔴model: <br>
+## 🔴 Model: <br>
 <strong> SpatSIGMA_CD </strong> <br>
 <strong> HyperSIGMA_CD </strong> <br>
 
