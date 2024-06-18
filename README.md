@@ -140,28 +140,26 @@ python scripts/image_classification.py【请修改】
 ```
 ***Target Detection & Anomaly Detection***: 
 
-
+Please refer to [HyperspectralDetection-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/main/HyperspectralDetection).
 
 ***Change Detection***: 
 
-Please refer to [ChangeDetection-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ChangeDetection). <br>
-
+Please refer to [ChangeDetection-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ChangeDetection).
 
 
 ***Spectral Unmixing***: 
 
-Please refer to [HyperspectralUnmixing-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/main/HyperspectralUnmixing/Readme.md).<br>
-
+Please refer to [HyperspectralUnmixing-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/main/HyperspectralUnmixing).
 
 
 ***Denoising***: 
 
-Please refer to [Denoising-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising/readme.md).
+Please refer to [Denoising-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising).
 
 
 ***Super-Resolution***: 
 
-Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution/readme.md).
+Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution).
 
 
 # ⭐ Citation
