@@ -43,11 +43,10 @@ def get_args(dataset,seed_i,use_checkpoint=True,mode='Spat_Spec_Pretraining'):
         raise ValueError("Unkknow dataset")
     parser.add_argument('--patch_size', type=int, default=patch_size, help='')
     parser.add_argument('--seg_patches', type=int, default=seg_patches, help='')
-
     if mode == 'Spat_Pretraining':
-        model_name = 'SpatSIGMA_Unmix'
+        model_name = 'SpatSIGMA_CD'
     elif mode == 'Spat_Spec_Pretraining':
-        model_name = 'HyperSIGMA_Unmix'
+        model_name ='HyperSIGMA_CD'
     else:
         raise NameError
     parser.add_argument('--model_name', type=str, default=model_name, help='')
