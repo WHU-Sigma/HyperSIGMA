@@ -15,6 +15,7 @@
 <div align="center">
 
 [![arXiv paper](https://img.shields.io/badge/arXiv-2406.11519-b31b1b.svg)](https://arxiv.org/abs/2406.11519)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FWHU-Sigma%2FHyperSIGMA&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhuggingface.co%2FWHU-Sigma&count_bg=%23684BD3&title_bg=%23D7D187&icon=&icon_color=%23E7E7E7&title=HuggingFace+visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 </div>
 
