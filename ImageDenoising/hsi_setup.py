@@ -294,7 +294,7 @@ class Engine(object):
             best_model = torch.load(model_best_path)
 
         print('==> Resuming from checkpoint %s..' % resumePath)
-        assert os.path.isdir('checkpoints'), 'Error: no checkpoint directory found!'
+        # assert os.path.isdir('checkpoints'), 'Error: no checkpoint directory found!'
         checkpoint = torch.load(resumePath or model_best_path)
       
         if load_opt:

@@ -739,8 +739,8 @@ def addNoiseCases(srcdir,dstdir):
             savemat(os.path.join(dstdir_noise, filename), {'gt': loadmat(os.path.join(srcdir, filename))['data'][:,0:192, 0:192], 'input': noisyhsi[:,0:192, 0:192]})
 
 if __name__ == '__main__':
-    srcdir = '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/test'   #file path of original file
-    dstdir = '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/test_noise/Cases' #file path to put the testing file
+    srcdir = '/data/HSI_Data/Hyperspectral_Project/WDC/test'   #file path of original file
+    dstdir = '/data/HSI_Data/Hyperspectral_Project/WDC/test_noise/Cases' #file path to put the testing file
     addNoiseCases(srcdir,dstdir)
 
 

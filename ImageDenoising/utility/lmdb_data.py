@@ -48,7 +48,7 @@ def create_lmdb_train(
     print('map size (GB):', map_size / 1024 / 1024 / 1024)
     
     #import ipdb; ipdb.set_trace()
-    name = name+"_{}".format(ksizes[1])
+
     print(name+'.db')
     if os.path.exists(name+'.db'):
         raise Exception('database already exist!')
@@ -75,62 +75,21 @@ def create_lmdb_train(
             print('load mat (%d/%d): %s' %(i,len(fns),fn))
         
         print('done')
-
-    
-def create_icvl64_31():
-    print('create icvl_31...')
-    datadir = '/data/HSI_Data/icvl_train/' # your own data address
-    fns = os.listdir(datadir)
-    fns = [fn.split('.')[0]+'.mat' for fn in fns]
-    
-    create_lmdb_train(
-        datadir, fns, '/media/lmy/LMY/aaai/ICVL64_31', 'rad',  # your own dataset address
-        crop_sizes=(1024, 1024),
-        scales=(1, 0.5, 0.25),        
-        ksizes=(31, 64, 64),
-        strides=[(31, 64, 64), (31, 32, 32), (31, 32, 32)],        
-        load=h5py.File, augment=True,
-    )
-
+        
 def createDCmall():
     print('create wdc...')
-    datadir = '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/train/'
+    datadir = '/data/HSI_Data/Hyperspectral_Project/WDC/train/'
     fns = os.listdir(datadir) 
     
     fns = [fn.split('.')[0]+'.mat' for fn in fns]
-    # create_lmdb_train(
-    #     datadir, fns, '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/wdc', 'data',  # your own dataset address
-    #     crop_sizes=None,
-    #     scales=(1, 0.5, 0.25),        
-    #     ksizes=(191, 64, 64),
-    #     strides=[(191, 16, 16), (191, 8, 8), (191, 8, 8)],          
-    #     load=scio.loadmat, augment=True,
-    # )
     create_lmdb_train(
-        datadir, fns, '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/wdc', 'data',  # your own dataset address
+        datadir, fns, '/data/HSI_Data/Hyperspectral_Project/WDC/wdc', 'data',  # your own dataset address
         crop_sizes=None,
         scales=(1, 0.5, 0.25),        
-        ksizes=(191, 8, 8),
-        strides=[(191, 8, 8), (191, 8, 8), (191, 8, 8)],          
-        load=scio.loadmat, augment=True,
-    )
-    
-def createApex():
-    print('create apex...')
-    datadir = '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/apex_crop/'
-    
-    fns = os.listdir(datadir) 
-    create_lmdb_train(
-        datadir, fns, '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/apex', 'data',  # your own dataset address
-        crop_sizes=None,
-        scales=(1, 0.5,0.5,0.25),        
-        ksizes=(210, 64, 64),
-        strides=[(210, 64, 64),(210, 32, 32), (210, 32, 32), (210, 16, 16)],          
+        ksizes=(191, 64, 64),
+        strides=[(191, 16, 16), (191, 8, 8), (191, 8, 8)],          
         load=scio.loadmat, augment=True,
     )
 
 if __name__ == '__main__':
-    #createApex()
     createDCmall()
-    # create_icvl64_31()
-    pass

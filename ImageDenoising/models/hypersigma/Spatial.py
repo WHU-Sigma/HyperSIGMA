@@ -1,3 +1,4 @@
+import warnings
 import math
 import torch
 from functools import partial
@@ -5,7 +6,33 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 from timm.models.layers import drop_path, to_2tuple, trunc_normal_
+
 from torch.nn.init import constant_, xavier_uniform_
+
+
+def interpolate_pos_embed(model, checkpoint_model):
+    if 'pos_embed' in checkpoint_model:
+        pos_embed_checkpoint = checkpoint_model['pos_embed']
+        embedding_size = pos_embed_checkpoint.shape[-1]
+        num_patches = model.patch_embed.num_patches
+        num_extra_tokens = model.pos_embed.shape[-2] - num_patches
+        # num_extra_tokens = 1
+        # height (== width) for the checkpoint position embedding
+        orig_size = int((pos_embed_checkpoint.shape[-2] - num_extra_tokens) ** 0.5)
+        # height (== width) for the new position embedding
+        new_size = int(num_patches ** 0.5)
+        # class_token and dist_token are kept unchanged
+        if orig_size != new_size:
+            print("Position interpolate from %dx%d to %dx%d" % (orig_size, orig_size, new_size, new_size))
+            extra_tokens = pos_embed_checkpoint[:, :num_extra_tokens]
+            # only the position tokens are interpolated
+            pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
+            pos_tokens = pos_tokens.reshape(-1, orig_size, orig_size, embedding_size).permute(0, 3, 1, 2)
+            pos_tokens = torch.nn.functional.interpolate(
+                pos_tokens, size=(new_size, new_size), mode='bicubic', align_corners=False)
+            pos_tokens = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
+            new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
+            checkpoint_model['pos_embed'] = new_pos_embed
 
 def get_reference_points(spatial_shapes, device):
     #reference_points_list = []
@@ -28,8 +55,7 @@ def deform_inputs_func(x, patch_size):
     b = B // 3
 
     spatial_shapes = torch.as_tensor([h // patch_size, w // patch_size],
-                                    dtype=torch.long, device=x.device) 
-    # 3*2的tensor
+                                    dtype=torch.long, device=x.device) # 3*2的tensor
     # level_start_index = torch.cat((spatial_shapes.new_zeros(
     #     (1,)), spatial_shapes.prod(1).cumsum(0)[:-1])) # 第一个数为0，后边的是每行累乘后的依次累加
     reference_points = get_reference_points([h // patch_size, w // patch_size], x.device)
@@ -67,7 +93,8 @@ class Mlp(nn.Module):
     def forward(self, x):
         x = self.fc1(x)
         x = self.act(x)
-
+        # x = self.drop(x)
+        # commit this for the orignal BERT implement 
         x = self.fc2(x)
         x = self.drop(x)
         return x
@@ -88,6 +115,7 @@ class SampleAttention(nn.Module):
 
         self.qkv = nn.Linear(dim, all_head_dim * 3, bias=qkv_bias)
 
+
         self.sampling_offsets = nn.Linear(all_head_dim, self.num_heads  * n_points * 2) # 通过n point设置每个level采样几个点
 
         self.attn_drop = nn.Dropout(attn_drop)
@@ -95,8 +123,9 @@ class SampleAttention(nn.Module):
         self.proj_drop = nn.Dropout(proj_drop)
 
     def forward(self, x, H, W, deform_inputs):
+
         B, N, C = x.shape
- 
+
         qkv = self.qkv(x)
         qkv = qkv.reshape(B, N, 3, -1).permute(2, 0, 1, 3) # 3，B，N，c
         q, k, v = qkv[0], qkv[1], qkv[2]   # make torchscript happy (cannot use tensor as tuple) # B，N，L
@@ -237,6 +266,7 @@ class Block(nn.Module):
             self.gamma_2 = nn.Parameter(init_values * torch.ones((dim)),requires_grad=True)
         else:
             self.gamma_1, self.gamma_2 = None, None
+
         
     def forward(self, x, H, W, deform_inputs):
         if self.gamma_1 is None:
@@ -273,6 +303,9 @@ class PatchEmbed(nn.Module):
 
     def forward(self, x, **kwargs):
         B, C, H, W = x.shape
+        # FIXME look at relaxing size constraints
+        # assert H == self.img_size[0] and W == self.img_size[1], \
+        #     f"Input image size ({H}*{W}) doesn't match model ({self.img_size[0]}*{self.img_size[1]})."
         x = self.proj(x)
         Hp, Wp = x.shape[2], x.shape[3]
 
@@ -291,6 +324,9 @@ class HybridEmbed(nn.Module):
         self.backbone = backbone
         if feature_size is None:
             with torch.no_grad():
+                # FIXME this is hacky, but most reliable way of determining the exact dim of the output feature
+                # map for all networks, the feature metadata has reliable channel and stride info, but using
+                # stride to calc feature dim requires info about padding of each stage that isn't captured.
                 training = backbone.training
                 if training:
                     backbone.eval()
@@ -310,6 +346,15 @@ class HybridEmbed(nn.Module):
         x = self.proj(x)
         return x
 
+class Norm2d(nn.Module):
+    def __init__(self, embed_dim):
+        super().__init__()
+        self.ln = nn.LayerNorm(embed_dim, eps=1e-6)
+    def forward(self, x):
+        x = x.permute(0, 2, 3, 1)
+        x = self.ln(x)
+        x = x.permute(0, 3, 1, 2).contiguous()
+        return x
 
 #@BACKBONES.register_module()
 class SpatialVisionTransformer(nn.Module):
@@ -342,7 +387,22 @@ class SpatialVisionTransformer(nn.Module):
             self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim))
         else:
             self.pos_embed = None
-        
+
+
+        if hybrid_backbone is not None:
+            self.patch_embed_add = HybridEmbed(
+                hybrid_backbone, img_size=img_size, in_chans=self.embed_dim, embed_dim=180)
+        else:
+            self.patch_embed_add = PatchEmbed(
+                img_size=img_size, patch_size=1, in_chans=self.embed_dim, embed_dim=180)
+
+        num_patches_add = self.patch_embed_add.num_patches
+
+        if use_abs_pos_emb:
+            self.pos_embed_add = nn.Parameter(torch.zeros(1, num_patches_add, 180))
+        else:
+            self.pos_embed_add = None
+
         self.pos_drop = nn.Dropout(p=drop_rate)
 
         dpr = [x.item() for x in torch.linspace(0, drop_path_rate, depth)]  # stochastic depth decay rule
@@ -359,7 +419,14 @@ class SpatialVisionTransformer(nn.Module):
                 restart_regression=restart_regression, n_points=n_points)
             for i in range(depth)])
         
-
+        self.blocks_add = nn.ModuleList([
+            Block(
+                dim=180, num_heads=num_heads, mlp_ratio=mlp_ratio, qkv_bias=qkv_bias, qk_scale=qk_scale,
+                drop=drop_rate, attn_drop=attn_drop_rate, drop_path=dpr[i], norm_layer=norm_layer,
+                init_values=init_values, sample=((i + 1) % interval != 0), 
+                restart_regression=restart_regression, n_points=n_points)
+            for i in range(4)])
+         
         self.interval = interval
 
         if self.pos_embed is not None:
@@ -368,13 +435,25 @@ class SpatialVisionTransformer(nn.Module):
         if self.pos_embed_add is not None:
             trunc_normal_(self.pos_embed_add, std=.02)
 
+        self.norm = norm_layer(embed_dim)
+
 
         self.apply(self._init_weights)
         self.fix_init_weight()
         self.pretrained = pretrained
 
+        self.out_channels = (3, embed_dim, embed_dim, embed_dim, embed_dim)
+        self.upsample2 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
+        self.upsample4 = nn.Upsample(scale_factor=4, mode='bilinear', align_corners=True)
         
         self.up1 = nn.ConvTranspose2d(in_channels=embed_dim, out_channels=embed_dim, kernel_size=2, stride=2)
+        self.up2 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
+
+        self.conv1_reconstruct = nn.Conv2d(768, 180, kernel_size=3, padding=1)
+        self.conv2_reconstruct = nn.Conv2d(180, in_chans, kernel_size=3, padding=1)
+        self.conv3_reconstruct = nn.Conv2d(in_chans*2, in_chans, kernel_size=3, padding=1)
+        self.conv_head = nn.Conv2d(original_channels, in_chans, kernel_size=3, padding=1)
+        self.conv_tail = nn.Conv2d(in_chans, original_channels, kernel_size=3, padding=1)
 
     def fix_init_weight(self):
         def rescale(param, layer_id):
@@ -449,6 +528,7 @@ class SpatialVisionTransformer(nn.Module):
                 new_size = int(num_patches ** 0.5)
                 # class_token and dist_token are kept unchanged
                 if orig_size != new_size:
+                    
                     pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
                     pos_tokens = pos_tokens.reshape(-1, orig_size, orig_size, embedding_size).permute(0, 3, 1, 2)
                     pos_tokens = torch.nn.functional.interpolate(
@@ -468,7 +548,7 @@ class SpatialVisionTransformer(nn.Module):
             raise TypeError('pretrained must be a str or None')
 
     def get_num_layers(self):
-        return len(self.blocks)
+        return len(self.blocks)+len(self.blocks_add)
 
     @torch.jit.ignore
     def no_weight_decay(self):
@@ -499,52 +579,49 @@ class SpatialVisionTransformer(nn.Module):
                 features.append(x)
 
         features = list(map(lambda x: x.permute(0, 2, 1).reshape(B, -1, Hp, Wp), features))
+        
 
         return img + features
 
+    def forward_addition(self, x):
+
+        img = [x]
+
+        deform_inputs = deform_inputs_func(x, 1)
+
+        B, C, H, W = x.shape
+        x, (Hp, Wp) = self.patch_embed_add(x)
+        batch_size, seq_len, _ = x.size()
+
+        if self.pos_embed_add is not None:
+            x = x + self.pos_embed_add
+        x = self.pos_drop(x)
+
+        features = []
+        for i, blk in enumerate(self.blocks_add):
+
+            x = blk(x, Hp, Wp, deform_inputs)
+                
+            if i in self.out_indices:
+                features.append(x)
+
+        features = list(map(lambda x: x.permute(0, 2, 1).reshape(B, -1, Hp, Wp), features))
+
+
+        return img + features
 
     def forward(self, x):
+
 
         x = self.forward_features(x)
         x0 = x[0]
         x1 = x[-1] # torch.Size([8, 768, 64, 64])
 
         x1 = self.up1(x1)
-  
+
+
         x = x1 
-        
         return x0, x
-
-
-if __name__ == "__main__":
-
-    model = SpatViT(
-        img_size=64,
-        in_chans=100,
-        patch_size=2,
-        drop_path_rate=0.1,
-        out_indices=[3, 5, 7, 11],
-        embed_dim=768,
-        depth=12,
-        num_heads=12,
-        mlp_ratio=4,
-        qkv_bias=True,
-        qk_scale=None,
-        drop_rate=0.,
-        attn_drop_rate=0.,
-        use_checkpoint=False,
-        use_abs_pos_emb=True,
-        interval = 3,
-        original_channels=191
-    )
- 
-    model.eval()
-
-    input = torch.Tensor(1, 191, 64, 64)
-
-    out = model(input)
-    print(out.shape)
-
 
     
     

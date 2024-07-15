@@ -138,7 +138,7 @@ class SSFusionFramework(torch.nn.Module):
         return x
 
 
-def spat_vit_b_rvsa():
+def spat_vit_b_rvsa(args=None):
     model = SSFusionFramework(
         img_size=64,
         in_channels=191,

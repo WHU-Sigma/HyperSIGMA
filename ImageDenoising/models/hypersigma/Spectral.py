@@ -1,3 +1,4 @@
+import warnings
 import math
 import torch
 from functools import partial
@@ -5,9 +6,16 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 
+from einops import rearrange, repeat
 from timm.models.layers import drop_path, to_2tuple, trunc_normal_
 
+# from mmengine.dist import get_dist_info
 from torch.nn.init import constant_, xavier_uniform_
+
+# from mmcv_custom import load_checkpoint
+# from mmdet.utils import get_root_logger
+# from ..builder import BACKBONES
+
 
 def get_reference_points(spatial_shapes, device):
     #reference_points_list = []
@@ -19,15 +27,16 @@ def get_reference_points(spatial_shapes, device):
     ref_y = ref_y.reshape(-1)[None] / H_
     ref_x = ref_x.reshape(-1)[None] / W_
     ref = torch.stack((ref_x, ref_y), -1) # 每个点归一化后的坐标，尺寸(1，H_*W_，2)
-
+    #reference_points_list.append(ref)
+    #reference_points = torch.cat(reference_points_list, 1) # 连接各特征图的坐标
+    #reference_points = reference_points[:, :, None] #(1，H_*W_，1，2)
     return ref
 
 
 def deform_inputs_func(x, num_tokens):
 
     spatial_shapes = torch.as_tensor([int(math.sqrt(num_tokens)), int(math.sqrt(num_tokens))],
-                                    dtype=torch.long, device=x.device) 
-    # 3*2的tensor
+                                    dtype=torch.long, device=x.device) # 3*2的tensor
     # level_start_index = torch.cat((spatial_shapes.new_zeros(
     #     (1,)), spatial_shapes.prod(1).cumsum(0)[:-1])) # 第一个数为0，后边的是每行累乘后的依次累加
     reference_points = get_reference_points([int(math.sqrt(num_tokens)), int(math.sqrt(num_tokens))], x.device)
@@ -65,7 +74,8 @@ class Mlp(nn.Module):
     def forward(self, x):
         x = self.fc1(x)
         x = self.act(x)
-
+        # x = self.drop(x)
+        # commit this for the orignal BERT implement 
         x = self.fc2(x)
         x = self.drop(x)
         return x
@@ -85,6 +95,12 @@ class SampleAttention(nn.Module):
         self.scale = qk_scale or head_dim ** -0.5
 
         self.qkv = nn.Linear(dim, all_head_dim * 3, bias=qkv_bias)
+        # self.window_size = window_size
+        # q_size = window_size[0]
+        # kv_size = q_size
+        # rel_sp_dim = 2 * q_size - 1
+        # self.rel_pos_h = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
+        # self.rel_pos_w = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
 
         self.sampling_offsets = nn.Linear(all_head_dim, self.num_heads  * n_points * 2) # 通过n point设置每个level采样几个点
 
@@ -96,6 +112,10 @@ class SampleAttention(nn.Module):
 
         B, N, C = x.shape
 
+        # qkv_bias = None
+        # if self.q_bias is not None:
+        #     qkv_bias = torch.cat((self.q_bias, torch.zeros_like(self.v_bias, requires_grad=False), self.v_bias))
+        # qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         qkv = self.qkv(x)
         qkv = qkv.reshape(B, N, 3, -1).permute(2, 0, 1, 3) # 3，B，N，c
         q, k, v = qkv[0], qkv[1], qkv[2]   # make torchscript happy (cannot use tensor as tuple) # B，N，L
@@ -180,6 +200,12 @@ class Attention(nn.Module):
         self.scale = qk_scale or head_dim ** -0.5
 
         self.qkv = nn.Linear(dim, all_head_dim * 3, bias=qkv_bias)
+        # self.window_size = window_size
+        # q_size = window_size[0]
+        # kv_size = q_size
+        # rel_sp_dim = 2 * q_size - 1
+        # self.rel_pos_h = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
+        # self.rel_pos_w = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(all_head_dim, dim)
@@ -187,14 +213,18 @@ class Attention(nn.Module):
 
     def forward(self, x, H, W, rel_pos_bias=None):
         B, N, C = x.shape
-
+        # qkv_bias = None
+        # if self.q_bias is not None:
+        #     qkv_bias = torch.cat((self.q_bias, torch.zeros_like(self.v_bias, requires_grad=False), self.v_bias))
+        # qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         qkv = self.qkv(x)
         qkv = qkv.reshape(B, N, 3, self.num_heads, -1).permute(2, 0, 3, 1, 4) # 3，B，H，N，C
         q, k, v = qkv[0], qkv[1], qkv[2]   # make torchscript happy (cannot use tensor as tuple) # B，H，N，C
 
         q = q * self.scale
         attn = (q @ k.transpose(-2, -1)) # B,H,N,N
-   
+
+        
         attn = attn.softmax(dim=-1)
         attn = self.attn_drop(attn)
 
@@ -233,7 +263,15 @@ class Block(nn.Module):
         else:
             self.gamma_1, self.gamma_2 = None, None
 
-
+#    def forward(self, x, H, W, deform_inputs):
+#        if self.gamma_1 is None:
+#            x = x + self.drop_path(self.attn(self.norm1(x), H, W, deform_inputs))
+#            x = x + self.drop_path(self.mlp(self.norm2(x)))
+#        else:
+#            x = x + self.drop_path(self.gamma_1 * self.attn(self.norm1(x), H, W, deform_inputs))
+#            x = x + self.drop_path(self.gamma_2 * self.mlp(self.norm2(x)))
+#        return x
+        
     def forward(self, x, H, W, deform_inputs):
         if self.gamma_1 is None:
             if not self.sample:
@@ -278,6 +316,9 @@ class HybridEmbed(nn.Module):
         self.backbone = backbone
         if feature_size is None:
             with torch.no_grad():
+                # FIXME this is hacky, but most reliable way of determining the exact dim of the output feature
+                # map for all networks, the feature metadata has reliable channel and stride info, but using
+                # stride to calc feature dim requires info about padding of each stage that isn't captured.
                 training = backbone.training
                 if training:
                     backbone.eval()
@@ -297,6 +338,15 @@ class HybridEmbed(nn.Module):
         x = self.proj(x)
         return x
 
+class Norm2d(nn.Module):
+    def __init__(self, embed_dim):
+        super().__init__()
+        self.ln = nn.LayerNorm(embed_dim, eps=1e-6)
+    def forward(self, x):
+        x = x.permute(0, 2, 3, 1)
+        x = self.ln(x)
+        x = x.permute(0, 3, 1, 2).contiguous()
+        return x
 
 #@BACKBONES.register_module()
 class SpectralVisionTransformer(nn.Module):
@@ -364,7 +414,10 @@ class SpectralVisionTransformer(nn.Module):
 
 
         self.l1 = nn.Linear(embed_dim, 128,  bias=False)
- 
+        # self.l2 = nn.Conv2d(NUM_TOKENS, 128, kernel_size=1, bias=False)
+        # self.l3 = nn.Conv2d(NUM_TOKENS, 128, kernel_size=1, bias=False)
+        # self.l4 = nn.Conv2d(NUM_TOKENS, 128, kernel_size=1, bias=False)
+
         self.apply(self._init_weights)
         self.fix_init_weight()
         self.pretrained = pretrained
@@ -440,7 +493,13 @@ class SpectralVisionTransformer(nn.Module):
                     if 'spat_map' in k:
                         del state_dict[k]
 
+            # print('$$$$$$$$$$$$$$$$$')
+            # print(state_dict.keys())
 
+            # print('#################')
+            # print(self.state_dict().keys())
+
+            # rank, _ = get_dist_info()
             if 'pos_embed' in state_dict:
                 pos_embed_checkpoint = state_dict['pos_embed']
                 embedding_size = pos_embed_checkpoint.shape[-1]
@@ -453,12 +512,16 @@ class SpectralVisionTransformer(nn.Module):
                 new_size = int(self.NUM_TOKENS)
                 # class_token and dist_token are kept unchanged
                 if orig_size != new_size:
+                    # if rank == 0:
+                    #     print("Position interpolate from %dx%d to %dx%d" % (orig_size, orig_size, H, W))
+                    # extra_tokens = pos_embed_checkpoint[:, :num_extra_tokens]
+                    # only the position tokens are interpolated
                     pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
                     pos_tokens = pos_tokens.reshape(-1, orig_size, 1, embedding_size).permute(0, 3, 1, 2)
                     pos_tokens = torch.nn.functional.interpolate(
                         pos_tokens, size=(self.NUM_TOKENS, 1), mode='bicubic', align_corners=False)
                     new_pos_embed = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
-
+                    # new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
                     state_dict['pos_embed'] = new_pos_embed
                 else:
                     state_dict['pos_embed'] = pos_embed_checkpoint[:, num_extra_tokens:]
@@ -474,6 +537,15 @@ class SpectralVisionTransformer(nn.Module):
     def get_num_layers(self):
         return len(self.blocks)
 
+    # def freeze_attn(self):
+        
+    #     attn_layers = ['attn.qkv', 'attn.proj']
+
+    #     for name, param in self.named_parameters():
+    #         for attn_name in attn_layers:
+    #             if attn_name in name:
+    #                 #print('$$$$$$$$$$',name)
+    #                 param.requires_grad = False
 
     @torch.jit.ignore
     def no_weight_decay(self):
@@ -516,7 +588,7 @@ class SpectralVisionTransformer(nn.Module):
             if i in self.out_indices:
                 features.append(x) # b, channels, embed_dim
 
-
+        #features = list(map(lambda x: x.permute(0, 2, 1).reshape(B, -1, H, W), features))
 
         ops = [self.l1]
         for i in range(len(ops)):
@@ -525,8 +597,9 @@ class SpectralVisionTransformer(nn.Module):
         return features, deform_inputs, H, W
 
     def forward(self, x):
+        # x = self.conv_head(x)
+        # x = self.conv1_reconstruct(x)
 
         x, deform_inputs, H, W = self.forward_features(x)
         x = x[-1]
         return x, deform_inputs, H, W
-    

@@ -1,14 +1,43 @@
+import warnings
 import math
 import torch
 from functools import partial
 import torch.nn as nn
 import torch.nn.functional as F
-
+import torch.utils.checkpoint as checkpoint
 from timm.models.layers import drop_path, to_2tuple, trunc_normal_
 
+# from mmengine.dist import get_dist_info
 from torch.nn.init import constant_, xavier_uniform_
 
+# from mmcv_custom import load_checkpoint
+# from mmdet.utils import get_root_logger
+# from ..builder import BACKBONES
 
+
+def interpolate_pos_embed(model, checkpoint_model):
+    if 'pos_embed' in checkpoint_model:
+        pos_embed_checkpoint = checkpoint_model['pos_embed']
+        embedding_size = pos_embed_checkpoint.shape[-1]
+        num_patches = model.patch_embed.num_patches
+        num_extra_tokens = model.pos_embed.shape[-2] - num_patches
+        # num_extra_tokens = 1
+        # height (== width) for the checkpoint position embedding
+        orig_size = int((pos_embed_checkpoint.shape[-2] - num_extra_tokens) ** 0.5)
+        # height (== width) for the new position embedding
+        new_size = int(num_patches ** 0.5)
+        # class_token and dist_token are kept unchanged
+        if orig_size != new_size:
+            print("Position interpolate from %dx%d to %dx%d" % (orig_size, orig_size, new_size, new_size))
+            extra_tokens = pos_embed_checkpoint[:, :num_extra_tokens]
+            # only the position tokens are interpolated
+            pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
+            pos_tokens = pos_tokens.reshape(-1, orig_size, orig_size, embedding_size).permute(0, 3, 1, 2)
+            pos_tokens = torch.nn.functional.interpolate(
+                pos_tokens, size=(new_size, new_size), mode='bicubic', align_corners=False)
+            pos_tokens = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
+            new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
+            checkpoint_model['pos_embed'] = new_pos_embed
 
 def get_reference_points(spatial_shapes, device):
     #reference_points_list = []
@@ -20,7 +49,9 @@ def get_reference_points(spatial_shapes, device):
     ref_y = ref_y.reshape(-1)[None] / H_
     ref_x = ref_x.reshape(-1)[None] / W_
     ref = torch.stack((ref_x, ref_y), -1) # 每个点归一化后的坐标，尺寸(1，H_*W_，2)
-
+    #reference_points_list.append(ref)
+    #reference_points = torch.cat(reference_points_list, 1) # 连接各特征图的坐标
+    #reference_points = reference_points[:, :, None] #(1，H_*W_，1，2)
     return ref
 
 
@@ -29,8 +60,7 @@ def deform_inputs_func(x, patch_size):
     b = B // 3
 
     spatial_shapes = torch.as_tensor([h // patch_size, w // patch_size],
-                                    dtype=torch.long, device=x.device) 
-    # 3*2的tensor
+                                    dtype=torch.long, device=x.device) # 3*2的tensor
     # level_start_index = torch.cat((spatial_shapes.new_zeros(
     #     (1,)), spatial_shapes.prod(1).cumsum(0)[:-1])) # 第一个数为0，后边的是每行累乘后的依次累加
     reference_points = get_reference_points([h // patch_size, w // patch_size], x.device)
@@ -68,7 +98,8 @@ class Mlp(nn.Module):
     def forward(self, x):
         x = self.fc1(x)
         x = self.act(x)
-
+        # x = self.drop(x)
+        # commit this for the orignal BERT implement 
         x = self.fc2(x)
         x = self.drop(x)
         return x
@@ -88,6 +119,12 @@ class SampleAttention(nn.Module):
         self.scale = qk_scale or head_dim ** -0.5
 
         self.qkv = nn.Linear(dim, all_head_dim * 3, bias=qkv_bias)
+        #self.window_size = window_size
+        # q_size = window_size[0]
+        # kv_size = q_size
+        # rel_sp_dim = 2 * q_size - 1
+        # self.rel_pos_h = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
+        # self.rel_pos_w = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
 
         self.sampling_offsets = nn.Linear(all_head_dim, self.num_heads  * n_points * 2) # 通过n point设置每个level采样几个点
 
@@ -98,6 +135,10 @@ class SampleAttention(nn.Module):
     def forward(self, x, H, W, deform_inputs):
 
         B, N, C = x.shape
+        # qkv_bias = None
+        # if self.q_bias is not None:
+        #     qkv_bias = torch.cat((self.q_bias, torch.zeros_like(self.v_bias, requires_grad=False), self.v_bias))
+        # qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         qkv = self.qkv(x)
         qkv = qkv.reshape(B, N, 3, -1).permute(2, 0, 1, 3) # 3，B，N，c
         q, k, v = qkv[0], qkv[1], qkv[2]   # make torchscript happy (cannot use tensor as tuple) # B，N，L
@@ -182,6 +223,12 @@ class Attention(nn.Module):
         self.scale = qk_scale or head_dim ** -0.5
 
         self.qkv = nn.Linear(dim, all_head_dim * 3, bias=qkv_bias)
+        # self.window_size = window_size
+        # q_size = window_size[0]
+        # kv_size = q_size
+        # rel_sp_dim = 2 * q_size - 1
+        # self.rel_pos_h = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
+        # self.rel_pos_w = nn.Parameter(torch.zeros(rel_sp_dim, head_dim)) # 2ws-1,C'
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(all_head_dim, dim)
@@ -189,7 +236,10 @@ class Attention(nn.Module):
 
     def forward(self, x, H, W, rel_pos_bias=None):
         B, N, C = x.shape
-  
+        # qkv_bias = None
+        # if self.q_bias is not None:
+        #     qkv_bias = torch.cat((self.q_bias, torch.zeros_like(self.v_bias, requires_grad=False), self.v_bias))
+        # qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         qkv = self.qkv(x)
         qkv = qkv.reshape(B, N, 3, self.num_heads, -1).permute(2, 0, 3, 1, 4) # 3，B，H，N，C
         q, k, v = qkv[0], qkv[1], qkv[2]   # make torchscript happy (cannot use tensor as tuple) # B，H，N，C
@@ -238,7 +288,15 @@ class Block(nn.Module):
         else:
             self.gamma_1, self.gamma_2 = None, None
 
-
+    #    def forward(self, x, H, W, deform_inputs):
+    #        if self.gamma_1 is None:
+    #            x = x + self.drop_path(self.attn(self.norm1(x), H, W, deform_inputs))
+    #            x = x + self.drop_path(self.mlp(self.norm2(x)))
+    #        else:
+    #            x = x + self.drop_path(self.gamma_1 * self.attn(self.norm1(x), H, W, deform_inputs))
+    #            x = x + self.drop_path(self.gamma_2 * self.mlp(self.norm2(x)))
+    #        return x
+        
     def forward(self, x, H, W, deform_inputs):
         if self.gamma_1 is None:
             if not self.sample:
@@ -274,6 +332,9 @@ class PatchEmbed(nn.Module):
 
     def forward(self, x, **kwargs):
         B, C, H, W = x.shape
+        # FIXME look at relaxing size constraints
+        # assert H == self.img_size[0] and W == self.img_size[1], \
+        #     f"Input image size ({H}*{W}) doesn't match model ({self.img_size[0]}*{self.img_size[1]})."
         x = self.proj(x)
         Hp, Wp = x.shape[2], x.shape[3]
 
@@ -292,6 +353,9 @@ class HybridEmbed(nn.Module):
         self.backbone = backbone
         if feature_size is None:
             with torch.no_grad():
+                # FIXME this is hacky, but most reliable way of determining the exact dim of the output feature
+                # map for all networks, the feature metadata has reliable channel and stride info, but using
+                # stride to calc feature dim requires info about padding of each stage that isn't captured.
                 training = backbone.training
                 if training:
                     backbone.eval()
@@ -311,6 +375,16 @@ class HybridEmbed(nn.Module):
         x = self.proj(x)
         return x
 
+class Norm2d(nn.Module):
+    def __init__(self, embed_dim):
+        super().__init__()
+        self.ln = nn.LayerNorm(embed_dim, eps=1e-6)
+    def forward(self, x):
+        x = x.permute(0, 2, 3, 1)
+        x = self.ln(x)
+        x = x.permute(0, 3, 1, 2).contiguous()
+        return x
+
 #@BACKBONES.register_module()
 class Adpater(nn.Module):
     """ Vision Transformer with support for patch or hybrid CNN input stage
@@ -326,6 +400,22 @@ class Adpater(nn.Module):
         self.num_classes = num_classes
         self.num_features = self.embed_dim = embed_dim  # num_features for consistency with other models
         self.in_chans = in_chans
+
+        if hybrid_backbone is not None:
+            self.patch_embed = HybridEmbed(
+                hybrid_backbone, img_size=img_size, in_chans=in_chans, embed_dim=embed_dim)
+        else:
+            self.patch_embed = PatchEmbed(
+                img_size=img_size, patch_size=patch_size, in_chans=in_chans, embed_dim=embed_dim)
+
+        num_patches = self.patch_embed.num_patches
+
+        self.out_indices = out_indices
+
+        if use_abs_pos_emb:
+            self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim))
+        else:
+            self.pos_embed = None
 
 
         if hybrid_backbone is not None:
@@ -374,6 +464,20 @@ class Adpater(nn.Module):
         self.apply(self._init_weights)
         self.pretrained = pretrained
 
+        self.out_channels = (3, embed_dim, embed_dim, embed_dim, embed_dim)
+        self.upsample2 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
+        self.upsample4 = nn.Upsample(scale_factor=4, mode='bilinear', align_corners=True)
+        
+        self.up1 = nn.ConvTranspose2d(in_channels=embed_dim, out_channels=embed_dim, kernel_size=2, stride=2)
+        self.up2 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
+
+        self.conv1_reconstruct = nn.Conv2d(191, 191, kernel_size=3, padding=1)
+        self.conv2_reconstruct = nn.Conv2d(191, in_chans, kernel_size=3, padding=1)
+    
+        self.conv_head = nn.Conv2d(original_channels, in_chans, kernel_size=3, padding=1)
+        # self.conv3_reconstruct = nn.Conv2d(in_chans*2, in_chans, kernel_size=3, padding=1)
+        # self.conv_tail = nn.Conv2d(in_chans, original_channels, kernel_size=3, padding=1)
+
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -384,6 +488,90 @@ class Adpater(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
+    def init_weights(self, pretrained):
+        """Initialize the weights in backbone.
+
+        Args:
+            pretrained (str, optional): Path to pre-trained weights.
+                Defaults to None.
+        """
+        pretrained = pretrained or self.pretrained
+        def _init_weights(m):
+            if isinstance(m, nn.Linear):
+                trunc_normal_(m.weight, std=.02)
+                if isinstance(m, nn.Linear) and m.bias is not None:
+                    nn.init.constant_(m.bias, 0)
+            elif isinstance(m, nn.LayerNorm):
+                nn.init.constant_(m.bias, 0)
+                nn.init.constant_(m.weight, 1.0)
+
+        if isinstance(pretrained, str):
+            self.apply(_init_weights)
+
+            checkpoint = torch.load(pretrained, map_location='cpu')
+
+            if 'state_dict' in checkpoint:
+                state_dict = checkpoint['state_dict']
+            elif 'model' in checkpoint:
+                state_dict = checkpoint['model']
+            else:
+                state_dict = checkpoint
+
+            # strip prefix of state_dict
+            if list(state_dict.keys())[0].startswith('module.'):
+                state_dict = {k[7:]: v for k, v in state_dict.items()}
+
+            # for MoBY, load model of online branch
+            if sorted(list(state_dict.keys()))[0].startswith('encoder'):
+                state_dict = {k.replace('encoder.', ''): v for k, v in state_dict.items() if k.startswith('encoder.')}
+
+            # remove patch embed when inchan != 3
+
+            if self.in_chans != 3:
+                for k in list(state_dict.keys()):
+                    if 'patch_embed.proj' in k:
+                        del state_dict[k]
+
+            # print('$$$$$$$$$$$$$$$$$')
+            # print(state_dict.keys())
+
+            # print('#################')
+            # print(self.state_dict().keys())
+
+            # rank, _ = get_dist_info()
+            if 'pos_embed' in state_dict:
+                pos_embed_checkpoint = state_dict['pos_embed']
+                embedding_size = pos_embed_checkpoint.shape[-1]
+                H, W = self.patch_embed.patch_shape
+                num_patches = self.patch_embed.num_patches
+                num_extra_tokens = 1
+                # height (== width) for the checkpoint position embedding
+                orig_size = int((pos_embed_checkpoint.shape[-2] - num_extra_tokens) ** 0.5)
+                # height (== width) for the new position embedding
+                new_size = int(num_patches ** 0.5)
+                # class_token and dist_token are kept unchanged
+                if orig_size != new_size:
+                    # if rank == 0:
+                    #     print("Position interpolate from %dx%d to %dx%d" % (orig_size, orig_size, H, W))
+                    # extra_tokens = pos_embed_checkpoint[:, :num_extra_tokens]
+                    # only the position tokens are interpolated
+                    pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
+                    pos_tokens = pos_tokens.reshape(-1, orig_size, orig_size, embedding_size).permute(0, 3, 1, 2)
+                    pos_tokens = torch.nn.functional.interpolate(
+                        pos_tokens, size=(H, W), mode='bicubic', align_corners=False)
+                    new_pos_embed = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
+                    # new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
+                    state_dict['pos_embed'] = new_pos_embed
+                else:
+                    state_dict['pos_embed'] = pos_embed_checkpoint[:, num_extra_tokens:]
+
+            msg = self.load_state_dict(state_dict, False)
+            print(msg)
+
+        elif pretrained is None:
+            self.apply(_init_weights)
+        else:
+            raise TypeError('pretrained must be a str or None')
 
     def get_num_layers(self):
         return len(self.blocks_add)
@@ -416,49 +604,31 @@ class Adpater(nn.Module):
                 features.append(x)
 
         features = list(map(lambda x: x.permute(0, 2, 1).reshape(B, -1, Hp, Wp), features))
-
+        
+        # ops = [self.fpn1, self.fpn2, self.fpn3, self.fpn4]
+        # for i in range(len(ops)):
+        #     features[i] = ops[i](features[i])
 
         return img + features
 
     def forward(self, x):
+
         x = self.forward_addition(x)
+        # print(len(x))
         x1 = x[-1]
 
+
         x = x1 # torch.Size([8, 180, 64, 64])
+        # print(x.shape)
+        # exit()
+        # x = self.conv1_reconstruct(x) # torch.Size([8, 180, 64, 64])
+        # x = self.conv2_reconstruct(x) # torch.Size([8, 100, 64, 64])
+        # print(x.shape), print(x0.shape)
+
 
         return x
 
     
-if __name__ == "__main__":
-
-    model = SpatViT(
-        img_size=64,
-        in_chans=100,
-        patch_size=2,
-        drop_path_rate=0.1,
-        out_indices=[3, 5, 7, 11],
-        embed_dim=768,
-        depth=12,
-        num_heads=12,
-        mlp_ratio=4,
-        qkv_bias=True,
-        qk_scale=None,
-        drop_rate=0.,
-        attn_drop_rate=0.,
-        use_checkpoint=False,
-        use_abs_pos_emb=True,
-        interval = 3,
-        original_channels=191
-    )
-
-    model.eval()
-
-    input = torch.Tensor(1, 191, 64, 64)
-
-    out = model(input)
-    print(out.shape)
-
-
     
 
     

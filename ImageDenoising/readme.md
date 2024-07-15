@@ -1,3 +1,9 @@
+# Prepare Dataset
+
+Our data processing pipeline closely follows [SST](https://github.com/MyuLi/SST), with some adjustments to the test scenarios. The entire WDC dataset download link: https://engineering.purdue.edu/~biehl/MultiSpec/hyperspectral.html
+
+The codes for split it to traning, testing, validating are available at utility/mat_data.py create_WDC_dataset().  Run the createDCmall() function in utility/lmdb_data.py to generate training lmdb dataset. To generate testing files with noise, replace the srcdir and dstdir in utility/generate_case.py and run utility/generate_case.py.
+
 # Training
 
 **For training the gaussian noise model, use the following command:**

@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
 
     """Test-Dev"""
-    basefolder = '/mnt/code/users/yuchunmiao/hypersigma-master/data/Hyperspectral_Project/WDC/test_noise/Patch_Cases/Case1'
+    basefolder = '/mnt/code/users/yuchunmiao/SST-master/data/Hyperspectral_Project/WDC/test_noise/Patch_Cases/Case1'
     
     mat_datasets = [MatDataFromFolder(basefolder) ]
 
