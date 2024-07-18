@@ -42,7 +42,7 @@
 
 # 🔥 Update
 **2024.07.18**
-- Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘)<img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)<img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg"/>**.
+- Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘) <img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Hugging Face <img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg"/>](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)**.
 
 - Datasets for HSI denoising have been released for research use only. Please check it [here](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_denoising).
 
@@ -98,12 +98,12 @@ To train the foundational model, we collected hyperspectral remote sensing image
 
 | Pretrain | Backbone | Model Weights |
 | :------- | :------: | :------: |
-| Spatial_MAE | ViT-B | [Baidu](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-base-ultra-checkpoint-1599.pth)| 
-| Spatial_MAE | ViT-L |  [Baidu](https://pan.baidu.com/s/11iwHFh8sfg9S-inxOYtJlA?pwd=d2qs) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-large-ultra-checkpoint-1599.pth)|
-| Spatial_MAE | ViT-H | [Baidu](https://pan.baidu.com/s/1gV9A_XmTCBRw90zjSt90ZQ?pwd=knuu) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-huge-ultra-checkpoint-1599.pth)| 
-| Spectral_MAE | ViT-B |  [Baidu](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-base-ultra-checkpoint-1599.pth)|
-| Spectral_MAE | ViT-L | [Baidu](https://pan.baidu.com/s/1tF2rG-T_65QA3UaG4K9Lhg?pwd=xvdd) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-large-ultra-checkpoint-1599.pth)| 
-| Spectral_MAE | ViT-H |  [Baidu](https://pan.baidu.com/s/1Di9ffWuzxPZUagBCU4Px2w?pwd=bi9r) & [Huggingface](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-huge-ultra-checkpoint-1599.pth) |
+| Spatial_MAE | ViT-B | [Baidu Drive](https://pan.baidu.com/s/1kShixCeWhPGde-vLLxQLJg?pwd=vruc) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-base-ultra-checkpoint-1599.pth)| 
+| Spatial_MAE | ViT-L |  [Baidu Drive](https://pan.baidu.com/s/11iwHFh8sfg9S-inxOYtJlA?pwd=d2qs) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-large-ultra-checkpoint-1599.pth)|
+| Spatial_MAE | ViT-H | [Baidu Drive](https://pan.baidu.com/s/1gV9A_XmTCBRw90zjSt90ZQ?pwd=knuu) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spat-vit-huge-ultra-checkpoint-1599.pth)| 
+| Spectral_MAE | ViT-B |  [Baidu Drive](https://pan.baidu.com/s/1VinBf4qnN98aa6z7TZ-ENQ?pwd=mi2y) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-base-ultra-checkpoint-1599.pth)|
+| Spectral_MAE | ViT-L | [Baidu Drive](https://pan.baidu.com/s/1tF2rG-T_65QA3UaG4K9Lhg?pwd=xvdd) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-large-ultra-checkpoint-1599.pth)| 
+| Spectral_MAE | ViT-H |  [Baidu Drive](https://pan.baidu.com/s/1Di9ffWuzxPZUagBCU4Px2w?pwd=bi9r) & [Hugging Face](https://huggingface.co/WHU-Sigma/HyperSIGMA/blob/main/spec-vit-huge-ultra-checkpoint-1599.pth) |
 
 
 
