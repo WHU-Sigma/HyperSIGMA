@@ -8,42 +8,21 @@ import torch.nn.functional as F
 class SSFusionFramework(torch.nn.Module):
     
     def __init__(self, 
-                  img_size = None,
-                  in_channels = None,
-                  patch_size=None,
-                  classes: int = 1):
+                img_size = None,
+                in_channels = None,
+                patch_size=None,
+                classes: int = 1,
+                model_size= None):
         super(SSFusionFramework, self).__init__()
 
         # encoder
-
-        self.spat_encoder =  SpatViT_fusion_patch.SpatViT(
-            img_size=img_size,
-            num_classes = classes,
-            in_chans=in_channels,
-            patch_size=patch_size,
-            drop_path_rate=0.1,
-            out_indices=[3, 5, 7, 11],
-            embed_dim=768,
-            depth=12,
-            num_heads=12,
-            mlp_ratio=4,
-            qkv_bias=True,
-            qk_scale=None,
-            drop_rate=0.,
-            attn_drop_rate=0.,
-            use_checkpoint=True,
-            use_abs_pos_emb=True,
-            interval = 3,
-            n_points=8
-        )
-
-
         NUM_TOKENS = 100
-
-        self.spec_encoder =  SpecViT_fusion.SpectralVisionTransformer(
-                NUM_TOKENS = NUM_TOKENS,
+        if model_size=='base':
+            self.spat_encoder =  SpatViT_fusion_patch.SpatViT(
                 img_size=img_size,
+                num_classes = classes,
                 in_chans=in_channels,
+                patch_size=patch_size,
                 drop_path_rate=0.1,
                 out_indices=[3, 5, 7, 11],
                 embed_dim=768,
@@ -58,7 +37,109 @@ class SSFusionFramework(torch.nn.Module):
                 use_abs_pos_emb=True,
                 interval = 3,
                 n_points=8
-        )
+            )
+            self.spec_encoder =  SpecViT_fusion.SpectralVisionTransformer(
+                    NUM_TOKENS = NUM_TOKENS,
+                    img_size=img_size,
+                    in_chans=in_channels,
+                    drop_path_rate=0.1,
+                    out_indices=[3, 5, 7, 11],
+                    embed_dim=768,
+                    depth=12,
+                    num_heads=12,
+                    mlp_ratio=4,
+                    qkv_bias=True,
+                    qk_scale=None,
+                    drop_rate=0.,
+                    attn_drop_rate=0.,
+                    use_checkpoint=True,
+                    use_abs_pos_emb=True,
+                    interval = 3,
+                    n_points=8
+            )
+            self.embed_dim=768
+        if model_size=='large':
+            self.spat_encoder =  SpatViT_fusion_patch.SpatViT(
+                img_size=img_size,
+                num_classes = classes,
+                in_chans=in_channels,
+                patch_size=patch_size,
+                drop_path_rate=0.1,
+                out_indices=[7, 11, 15, 23],
+                embed_dim=1024,
+                depth=24,
+                num_heads=16,
+                mlp_ratio=4,
+                qkv_bias=True,
+                qk_scale=None,
+                drop_rate=0.,
+                attn_drop_rate=0.,
+                use_checkpoint=True,
+                use_abs_pos_emb=True,
+                interval = 6,
+                n_points=8
+            )
+            self.spec_encoder =  SpecViT_fusion.SpectralVisionTransformer(
+                    NUM_TOKENS = NUM_TOKENS,
+                    img_size=img_size,
+                    in_chans=in_channels,
+                    drop_path_rate=0.1,
+                    out_indices=[7, 11, 15, 23],
+                    embed_dim=1024,
+                    depth=24,
+                    num_heads=16,
+                    mlp_ratio=4,
+                    qkv_bias=True,
+                    qk_scale=None,
+                    drop_rate=0.,
+                    attn_drop_rate=0.,
+                    use_checkpoint=True,
+                    use_abs_pos_emb=True,
+                    interval = 6,
+                    n_points=8
+            )
+            self.embed_dim=1024
+        if model_size=='huge':
+            self.spat_encoder =  SpatViT_fusion_patch.SpatViT(
+                img_size=img_size,
+                num_classes = classes,
+                in_chans=in_channels,
+                patch_size=patch_size,
+                drop_path_rate=0.1,
+                out_indices=[10, 15, 20, 31],
+                embed_dim=1280,
+                depth=32,
+                num_heads=16,
+                mlp_ratio=4,
+                qkv_bias=True,
+                qk_scale=None,
+                drop_rate=0.,
+                attn_drop_rate=0.,
+                use_checkpoint=True,
+                use_abs_pos_emb=True,
+                interval = 8,
+                n_points=8
+            )
+            self.spec_encoder =  SpecViT_fusion.SpectralVisionTransformer(
+                    NUM_TOKENS = NUM_TOKENS,
+                    img_size=img_size,
+                    in_chans=in_channels,
+                    drop_path_rate=0.1,
+                    out_indices=[10, 15, 20, 31],
+                    embed_dim=1280,
+                    depth=32,
+                    num_heads=16,
+                    mlp_ratio=4,
+                    qkv_bias=True,
+                    qk_scale=None,
+                    drop_rate=0.,
+                    attn_drop_rate=0.,
+                    use_checkpoint=True,
+                    use_abs_pos_emb=True,
+                    interval = 8,
+                    n_points=8
+            )
+            self.embed_dim=1280
 
         # decoder
 
@@ -67,11 +148,11 @@ class SSFusionFramework(torch.nn.Module):
 #        self.spec_encoder.init_weights(r"spec-base.pth")
         #print('################# Initing pretrained weights for Finetuning! ###################')
 
-        self.conv_features = nn.Conv2d(768, 64, kernel_size=1, bias=False)
-        self.DR1 = nn.Conv2d(768, 128, kernel_size=1, bias=False)
-        self.DR2= nn.Conv2d(768, 128, kernel_size=1, bias=False)
-        self.DR3 = nn.Conv2d(768, 128, kernel_size=1, bias=False)
-        self.DR4= nn.Conv2d(768, 128, kernel_size=1, bias=False)
+        self.conv_features = nn.Conv2d(self.embed_dim, 64, kernel_size=1, bias=False)
+        self.DR1 = nn.Conv2d(self.embed_dim, 128, kernel_size=1, bias=False)
+        self.DR2= nn.Conv2d(self.embed_dim, 128, kernel_size=1, bias=False)
+        self.DR3 = nn.Conv2d(self.embed_dim, 128, kernel_size=1, bias=False)
+        self.DR4= nn.Conv2d(self.embed_dim, 128, kernel_size=1, bias=False)
         self.conv = nn.Conv2d(128*4,128,kernel_size=1,stride=1,padding=0,bias=True)
         self.pool = nn.AdaptiveAvgPool1d(1)
         self.classifier = nn.Sequential(
