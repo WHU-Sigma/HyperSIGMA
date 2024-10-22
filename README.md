@@ -164,12 +164,12 @@ Please refer to [HyperspectralUnmixing-README](https://github.com/WHU-Sigma/Hype
 
 ***Denoising***: 
 
-Please refer to [Denoising-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageDenoising).
+Please refer to [Denoising-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ImageDenoising).
 
 
 ***Super-Resolution***: 
 
-Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/blob/8eb6f6b386a45f944d133ce9e33550a4d79fe7ca/ImageSuperResolution).
+Please refer to [SR-README](https://github.com/WHU-Sigma/HyperSIGMA/tree/main/ImageSuperResolution).
 
 
 ***Multispectral Change Detection***: 
