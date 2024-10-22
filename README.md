@@ -42,7 +42,7 @@
 
 # 🔥 Update
 **2024.07.18**
-- Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘) <img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Hugging Face <img height="20" width="20" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg"/>](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)**.
+- Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘) <img height="15" width="15" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Hugging Face 🤗](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)**.
 
 - Datasets for HSI denoising have been released for research use only. Please check it [here](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_denoising).
 
