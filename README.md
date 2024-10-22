@@ -41,6 +41,11 @@
 
 
 # 🔥 Update
+**2024.10.22**
+- Scripts for [Image Super-Resolution](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_super-resolution).
+
+- Checkpoints for [Image Denoising](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main/Denoising_models).
+
 **2024.07.18**
 - Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘) <img height="15" width="15" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Hugging Face 🤗](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)**.
 
