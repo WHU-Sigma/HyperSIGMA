@@ -1,3 +1,6 @@
+You can process data by scripts:
+[Scripts for SR](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_super-resolution).
+
 # Training
 **For training the scale factor $\times$ 4 model, use the following command:**
 ```
