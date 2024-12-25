@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .carousel .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      width: 100%;
+      max-width: 2000px; /* 可以根据需要调整最大宽度 */
+    }
+  
+    .carousel img {
+      width: 100%;
+      height: auto;
+      max-height: 650px; /* 设置一个合理的最大高度 */
+      object-fit: contain;
+      aspect-ratio: 4 / 3; /* 设置图片的宽高比，这里以4:3为例 */
+    }
+  </style>
+
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Perceive-IR: Learning to Perceive Degradation Better for All-in-One Image Restoration</title>
+  <link rel="icon" type="image/x-icon" href="static\images\icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">👁️🔍Perceive-IR: <br>Learning to Perceive Degradation Better for All-in-One Image Restoration</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=xDDy-DwAAAAJ" target="_blank">Xu Zhang</a><sup>1,✢</sup>,
+              </span>
+              <span class="author-block">
+              <a href="https://leonmakise.github.io/" target="_blank">Jiaqi Ma</a><sup>1,✢</sup>,
+              </span>
+              <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=z-25fk0AAAAJ" target="_blank">Guoli Wang</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=pCY-bikAAAAJ" target="_blank">Qian Zhang</a><sup>2</sup>,
+              </span>
+
+              <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=bJjd_kMAAAAJ" target="_blank">Huan Zhang</a><sup>3</sup>,
+              </span>
+
+              <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=BLKHwNwAAAAJ" target="_blank">Lefei Zhang</a><sup>1,📧</sup>
+              </span>
+            </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Wuhan University<sup>1</sup><br>Horizon Robotics<sup>2</sup><br>Guangdong University of Technology<sup>3</sup><br><b>Under Peer Review</b></span>
+                    <span class="eql-cntrb"><small><br><sup>✢</sup>: Equal Contribution</small>, <small><sup>📧</sup>: Corresponding Author</small><br></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <h4 class="title is-4">TL;NR: A Degradation Quality Aware All-in-one Image Restoration Framework</h4>
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <!-- <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2306.13653" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/House-yuyu/Perceive-IR" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2408.15994" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Perform Better in All-in-one Image Restoration</h2>
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video> -->
+      <div class="item">
+        <!-- Your image here -->
+        <center><img src="fig\radar.png" alt="MY ALT TEXT" width="600px" height="600px"/></center>
+        <h2 class="subtitle has-text-lefted">
+        PSNR comparisons with state-of-the-art methods across two common scenarios. <br>* denotes results obtained under “Noise+Haze+Rain+Blur+Low-light” training setting, while unmarked results are from “Noise+Haze+Rain” training setting.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The limitations of task-specific and general image restoration methods for specific degradation have prompted the development of all-in-one image restoration techniques. However, the diversity of patterns among multiple degradation, along with the significant uncertainties in mapping between degraded images of different severities and their corresponding undistorted versions, pose significant challenges to the all-in-one restoration tasks. To address these challenges, we propose <b>Perceive-IR</b>, an all-in-one image restorer designed to <b>achieve fine-grained quality control that enables restored images to more closely resemble their undistorted counterparts, regardless of the type or severity of degradation</b>. Specifically, Perceive-IR contains two stages: (1) prompt learning stage and (2) restoration stage. In the prompt learning stage, we leverage prompt learning to acquire a finegrained quality perceiver capable of distinguishing three-tier quality levels by constraining the prompt-image similarity in the CLIP perception space. Subsequently, this quality perceiver and difficulty-adaptive perceptual loss are integrated as a qualityaware learning strategy to realize fine-grained quality control in restoration stage. For the restoration stage, a semantic guidance module (SGM) and compact feature extraction (CFE) are proposed to further promote the restoration process by utilizing the robust semantic information from the pre-trained large scale vision models and distinguishing degradation-specific features. Extensive experiments demonstrate that our PerceiveIR outperforms state-of-the-art methods in all-in-one image restoration tasks and exhibit superior generalization ability when dealing with unseen tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Two-stage Framework</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <h3 class="title is-4">(1) Prompt Learning Stage</h3>
+        <!-- Your image here -->
+        <img src="fig\PerceiveIR_Stage1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-lefted">
+          We initialize and train textual prompts using image-text pairs categorized into three tiers of quality. These prompts are trained with cross-entropy loss in the CLIP model. Once trained, the learned prompts are fixed and used to guide the restoration of high-quality images during the subsequent restoration stage.
+        </h2>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">(2) Restoration Stage</h3>
+        <!-- Your image here -->
+        <img src="fig\PerceiveIR_Stage2.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-lefted">
+          (a) Restoration Branch: A 4-level U-shaped encoder-decoder structure that incorporates Transformer Block in the encoder and Enhanced Transformer Block in the decoder. <br>(b) Compact Feature Extraction: A module designed to generate distinctive degradation representation. <br>(c) Semantic Guidance Module: Comprising a pre-trained DINO-v2 and the Prompt Guidance Module to produce feature representations enriched with semantic and degradation priors.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<section class="hero teaser is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Quality-aware Learning Strategy</h2>
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video> -->
+      <div class="item">
+        <!-- Your image here -->
+        <img src="fig\PerceiveIR_Loss.png" alt="MY ALT TEXT" width="600px" height="600px"/>
+        <h2 class="subtitle has-text-centered">
+        (a) The CLIP-aware loss; <br>(b) The difficulty-adaptive perceptual loss.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Visual Comparisons</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <h3 class="title is-4">All-in-one Results</h3>
+        <!-- Your image here -->
+        <img src="fig\multi_degradation.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Visual comparisons of Perceive-IR with state-of-the-art all-in-one methods for All-in-One (“N+H+R”) setting. Zoom-in for best view.
+        </h2>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">Single-task Results</h3>
+        <!-- Your image here -->
+        <img src="fig\3_single_task_visual.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Visual comparisons of Perceive-IR with state-of-the-art all-in-one methods for One-by-One setting. Zoom-in for best view.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Discussion on Losses</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <h3 class="title is-4">Visual Results of Loss Combinations</h3>
+        <!-- Your image here -->
+        <img src="fig\loss_visual.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Visual comparison of the restored images obtained using the individual loss schemes and the proposed scheme.
+        </h2>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">Performance under Different Loss Ratio</h3>
+        <!-- Your image here -->
+        <img src="fig\loss_setting.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Comparison of PSNR and SSIM with different weight between different loss function on the Rain100L dataset. red, blue, and green are the weights λ1, λ2, and λ3, respectively.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+
+
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{zhang2024perceive,
+        title={Perceive-IR: Learning to Perceive Degradation Better for All-in-One Image Restoration},
+        author={Zhang, Xu and Ma, Jiaqi and Wang, Guoli and Zhang, Qian and Zhang, Huan and Zhang, Lefei},
+        journal={arXiv preprint arXiv:2408.15994},
+        year={2024}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- Default Statcounter code for Perceive-IR
+https://house-yuyu.github.io/Perceive-IR -->
+<script type="text/javascript">
+  var sc_project=13053453; 
+  var sc_invisible=0; 
+  var sc_security="2b6ddbea"; 
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" +
+  scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img
+  class="statcounter"
+  src="https://c.statcounter.com/13053453/0/2b6ddbea/0/"
+  alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
