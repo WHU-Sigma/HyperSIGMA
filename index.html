@@ -72,7 +72,9 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">🌏HyperSIGMA: <br>Hyperspectral Intelligence Comprehension Foundation Model</h1>
+            <h1 class="title is-1 publication-title">
+              <img src="Fig/logo.png" alt="Logo" style="width: 40px; height: auto; vertical-align: middle;">
+              HyperSIGMA: <br>Hyperspectral Intelligence Comprehension Foundation Model</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://dotwang.github.io/" target="_blank">Di Wang</a><sup>1,✢</sup>,
@@ -370,32 +372,33 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Visual Comparisons</h2>
+      <h2 class="title is-3">Pairwise Comparisons</h2>
 
-        <div id="comparison-slider" class="juxtapose">
-          <img src="Fig/sr/bicubicx4.png" alt="Left Image" style="width: 80%; height: auto;">
-          <img src="Fig/sr/oursx4.png" alt="Right Image" style="width: 80%; height: auto;">
-        </div>
-        
-        <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              new juxtapose.JXSlider('#comparison-slider', [
-                {
-                  src: 'Fig/sr/bicubicx4.png',
-                  label: 'Fig/sr/oursx4.png'
-                },
-                {
-                  src: 'Fig/sr/bicubicx4.png',
-                  label: 'Fig/sr/oursx4.png'
-                }
-              ]);
-            });
-          </script>
+      <!-- Juxtapose slider -->
+      <div id="comparison-slider" class="juxtapose">
+        <img src="Fig/sr/bicubicx4.png" alt="Left Image" style="width: 60%; height: 60%;">
+        <img src="Fig/sr/oursx4.png" alt="Right Image" style="width: 60%; height: 60%;">
+      </div>
 
-</div>
-</div>
+      <!-- Juxtapose.js -->
+      <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          new juxtapose.JXSlider('#comparison-slider', [
+            {
+              src: 'Fig/sr/bicubicx4.png',
+              label: 'Bicubic x4'
+            },
+            {
+              src: 'Fig/sr/oursx4.png',
+              label: 'Ours x4'
+            }
+          ]);
+      </script>
+    </div>
+  </div>
 </section>
+
 <!-- End image carousel -->
 
 
@@ -408,7 +411,7 @@
 
 
 <!-- Image carousel -->
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Visual Comparisons</h2>
@@ -499,6 +502,27 @@
     </div>
 </section>
 <!--End BibTex citation -->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title">Contact</h2>
+        <!-- <div class="TEXT"> -->
+          <p>
+            For any other questions please contact:
+          </p>
+          <ul style="list-style-type: disc;">
+            <li>Di Wang at <strong>d_wang@whu.edu.cn</strong></li>
+            <li>Chengxi Han at <strong>chengxihan@whu.edu.cn</strong></li>
+          </ul> 
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</footer>
 
 
   <footer class="footer">
