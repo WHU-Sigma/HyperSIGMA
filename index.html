@@ -156,7 +156,7 @@
                   </div>
 
                   <div class="column has-text-centered">
-                    <h4 class="title is-4">TL;NR: The first billion-level foundation model <br> specifically designed for HSI interpretation!</h4>
+
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <!-- <span class="link-block">
@@ -182,7 +182,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/House-yuyu/Perceive-IR" target="_blank"
+                    <a href="https://github.com/WHU-Sigma/HyperSIGMA" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -191,16 +191,38 @@
                   </a>
                 </span>
 
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+                </span>
+                
+                <span class="link-block">
+                  <a href="https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-download"></i>
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span>
+
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2408.15994" target="_blank"
+                  <a href="https://arxiv.org/abs/2406.11519" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+                </span>
+
+                <h4 class="title is-4">TL;NR: The first billion-level foundation model <br> specifically designed for HSI interpretation!</h4>
             </div>
           </div>
         </div>
@@ -209,38 +231,54 @@
   </div>
 </section>
 
-
-
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <center><img src="Fig\radarimg.png" alt="MY ALT TEXT" width="600px" height="600px"/></center>
         <div class="content has-text-justified">
           <p>
             HyperSIGMA is the first billion-level foundation model specifically designed for HSI interpretation. To tackle the spectral and spatial redundancy challenges in HSIs, we introduce a novel sparse sampling attention (SSA) mechanism, which effectively promotes the learning of diverse contextual features and serves as the basic block of HyperSIGMA. HyperSIGMA integrates spatial and spectral features using a specially designed spectral enhancement module.
           </p>
         </div>
-        <center><img src="Fig\framework.png" alt="MY ALT TEXT" width="800px" /></center>
-        <div class="content has-text-justified">
-          <p>
-            Extensive experiments on various high-level and low-level HSI tasks demonstrate HyperSIGMA’s versatility and superior representational capability compared to current state-of-the-art methods. It outperforms advanced models like SpectralGPT, even those specifically designed for these tasks.
-          </p>
-        </div>
+        
       </div>
     </div>
   </div>
 </section>
 <!-- End paper abstract -->
 
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Introduction</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework of HyperSIGMA</h3>
+          <!-- Your image here -->
+          <img src="Fig\framework.png" alt="MY ALT TEXT" width="50%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">HyperSIGMA demonstrates superior performance across 16 datasets and 7 tasks, including both high-level and low-level hyperspectral tasks, as well as multispectral scenes.</h3>
+        <!-- Your image here -->
+        <img src="Fig\radarimg.png" alt="MY ALT TEXT" width="50%"/>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
 
 
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Datasets</h2>
@@ -255,7 +293,7 @@
 <!-- End image carousel -->
 
 
-<section class="hero teaser is-light">
+<section class="hero teaser is-small">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="title is-3">Pretrained Models</h2>
@@ -323,79 +361,57 @@
   </div>
 </section>
 
-
+<head>
+  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+</head>
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Visual Comparisons</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <h3 class="title is-4">All-in-one Results</h3>
-        <!-- Your image here -->
-        <img src="fig\multi_degradation.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual comparisons of Perceive-IR with state-of-the-art all-in-one methods for All-in-One (“N+H+R”) setting. Zoom-in for best view.
-        </h2>
-      </div>
-      <div class="item">
-        <h3 class="title is-4">Single-task Results</h3>
-        <!-- Your image here -->
-        <img src="fig\3_single_task_visual.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual comparisons of Perceive-IR with state-of-the-art all-in-one methods for One-by-One setting. Zoom-in for best view.
-        </h2>
-      </div>
-  </div>
+
+        <div id="comparison-slider" class="juxtapose">
+          <img src="Fig/sr/bicubicx4.png" alt="Left Image" style="width: 80%; height: auto;">
+          <img src="Fig/sr/oursx4.png" alt="Right Image" style="width: 80%; height: auto;">
+        </div>
+        
+        <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              new juxtapose.JXSlider('#comparison-slider', [
+                {
+                  src: 'Fig/sr/bicubicx4.png',
+                  label: 'Fig/sr/oursx4.png'
+                },
+                {
+                  src: 'Fig/sr/bicubicx4.png',
+                  label: 'Fig/sr/oursx4.png'
+                }
+              ]);
+            });
+          </script>
+
 </div>
 </div>
 </section>
 <!-- End image carousel -->
 
-<div class="comparison-slider-wrapper outlined">
 
-  <div class="image-selector">
-      <!-- JS-generated -->
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-  </div>
 
-  <div class="comparison-slider noselect">
-      <div id="loading-placeholder" class="tall"></div>
-      <div id="right-imgs" showing="loading">
-        <img id="right" src="Fig\radarimg.png" alt="Right Image" style="width: 10%;">
-        <img id="right" src="Fig\radarimg.png" alt="Right Image" style="width: 10%;">
-        <img id="right" src="Fig\radarimg.png" alt="Right Image" style="width: 10%;">
-      </div>
-      <div class="resize noselect" id="left-img">
-        <img id="left" src="Fig\logo.png" alt="Left Image" style="width: 10%;">
-        <img id="left" src="Fig\logo.png" alt="Left Image" style="width: 10%;">
-        <img id="left" src="Fig\logo.png" alt="Left Image" style="width: 10%;">
-      </div>
-      <div class="left-selector">
-          <div class="btn-group-vertical" role="group">
-              <button type="button" class="btn btn-dark btn-block disabled-button highlighted" id="left-info-button" disabled>HiFiC (Ours)</button>
-          </div>
-      </div>
-  </div>
 
-  <div class="image-selector">
-      <!-- JS-generated -->
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-      <img class="thumb" src="Fig\dataset.png" style="width: 10%;"/>
-  </div>
 
-</div>
+
+
+
 
 
 <!-- Image carousel -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Statement</h2>
+      <h2 class="title is-3">Visual Comparisons</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <h3 class="title is-4">Visual Results of Loss Combinations</h3>
