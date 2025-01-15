@@ -45,7 +45,7 @@
 
 
   <title>HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model</title>
-  <link rel="icon" type="image/x-icon" href="static\images\icon.png">
+  <link rel="icon" type="image/x-icon" href="static\images\ICON.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -73,7 +73,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              <img src="Fig/logo.png" alt="Logo" style="width: 40px; height: auto; vertical-align: middle;">
+              <img src="Fig/logo.png" alt="Logo" style="width: 80px; height: auto; vertical-align: middle;">
               HyperSIGMA: <br>Hyperspectral Intelligence Comprehension Foundation Model</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -148,11 +148,12 @@
             </div>
 
                   <div class="is-size-5 publication-authors">
-                    <img src="static\images\whu.png" width="10%"/> 
-                    <img src="static\images\cqu.jpg" width="10%"/> 
-                    <img src="static\images\utokyo.png" width="30%"/>
-                    <img src="static\images\NERC-SLIP.jpg" width="10%"/> 
-                    <img src="static\images\NTU.jpg" width="25%"/>
+                    <img src="static\images\whu.png" width="25%"/> 
+                    <img src="static\images\cqu.png" width="25%"/> 
+                    <img src="static\images\utokyo.png" width="25%"/>
+                    <br>
+                    <img src="static\images\NERC-SLIP.png" width="50%"/> 
+                    <img src="static\images\NTU.jpg" width="20%"/>
                     <span class="author-block">Wuhan University<sup>1</sup> &nbsp &nbsp &nbsp Chongqing University<sup>2</sup> &nbsp &nbsp &nbsp The University of Tokyo<sup>3</sup><br>National Engineering Research Center of Speech and Language Information Processing<sup>4</sup><br>Nanyang Technological University<sup>5</sup><br><b>Under Peer Review</b></span>
                     <span class="eql-cntrb"><small><br><sup>✢</sup>: Equal Contribution</small>, <small><sup>📧</sup>: Corresponding Author</small><br></span>
                   </div>
@@ -224,6 +225,17 @@
                 </a>
                 </span>
 
+                <span class="link-block">
+                  <a href="https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-brands fa-weixin"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+                <br>
                 <h4 class="title is-4">TL;NR: The first billion-level foundation model <br> specifically designed for HSI interpretation!</h4>
             </div>
           </div>
@@ -241,7 +253,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            HyperSIGMA is the first billion-level foundation model specifically designed for HSI interpretation. To tackle the spectral and spatial redundancy challenges in HSIs, we introduce a novel sparse sampling attention (SSA) mechanism, which effectively promotes the learning of diverse contextual features and serves as the basic block of HyperSIGMA. HyperSIGMA integrates spatial and spectral features using a specially designed spectral enhancement module.
+            The first billion-level foundation model specifically designed for HSI interpretation. To tackle the spectral and spatial redundancy challenges in HSIs, we introduce a novel sparse sampling attention (SSA) mechanism, which effectively promotes the learning of diverse contextual features and serves as the basic block of HyperSIGMA. HyperSIGMA integrates spatial and spectral features using a specially designed spectral enhancement module.
           </p>
         </div>
         
@@ -262,8 +274,14 @@
           <!-- Your image here -->
           <img src="Fig\framework.png" alt="MY ALT TEXT" width="50%"/>
         </div>
+        <div class="item">
+          <h3 class="title is-4">Comparison of Existing Frameworks</h3>
+          <!-- Your image here -->
+          <img src="Fig\different_patterns.png" alt="MY ALT TEXT" width="50%"/>
+        </div>
+
        <div class="item">
-        <h3 class="title is-4">HyperSIGMA demonstrates superior performance across 16 datasets and 7 tasks, including both high-level and low-level hyperspectral tasks, as well as multispectral scenes.</h3>
+        <h3 class="title is-4">Superior performance across 16 datasets and 7 tasks. <br>Both high-level and low-level hyperspectral tasks, as well as multispectral scenes.</h3>
         <!-- Your image here -->
         <img src="Fig\radarimg.png" alt="MY ALT TEXT" width="50%"/>
       </div>
@@ -278,7 +296,6 @@
 
 
 
-
 <!-- Image carousel -->
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -287,7 +304,7 @@
         <!-- Your image here -->
         <center><img src="Fig\dataset.png"  alt="MY ALT TEXT" width="800px" /></center>
         <h2 class="subtitle has-text-lefted">
-          To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named HyperGlobal-450K for pre-training. HyperGlobal-450K contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
+          We collected hyperspectral remote sensing samples around the globe, constructing a large-scale hyperspectral dataset -- HyperGlobal-450K. <br> HyperGlobal-450K contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
         </h2>
     </div>
   </div>
@@ -295,7 +312,143 @@
 <!-- End image carousel -->
 
 
-<section class="hero teaser is-small">
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Classification</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework</h3>
+          <!-- Your image here -->
+          <img src="Fig\classification\HSIClassificationFlowchart.png" alt="MY ALT TEXT" width="30%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">Classification Map</h3>
+        <!-- Your image here -->
+        <img src="Fig\classification\HH_ClassificationMap.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Target Detection</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework</h3>
+          <!-- Your image here -->
+          <img src="Fig\detection\htd_framework.png" alt="MY ALT TEXT" width="30%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">Detection probability maps for HTD tasks</h3>
+        <!-- Your image here -->
+        <img src="Fig\detection\htd_map.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">Detection probability maps for HAD tasks</h3>
+        <!-- Your image here -->
+        <img src="Fig\detection\had_map.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">ROC curves on HTD and HAD tasks</h3>
+        <!-- Your image here -->
+        <img src="Fig/detection/hd_roc.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+      
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Change Detection</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework</h3>
+          <!-- Your image here -->
+          <img src="Fig\changedetection\CD_FlowChart.png" alt="MY ALT TEXT" width="30%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">Change detection map</h3>
+        <!-- Your image here -->
+        <img src="Fig\changedetection\CDmap_BayArea.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Unmixing</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework</h3>
+          <!-- Your image here -->
+          <img src="Fig\unmixing\Unmix_FlowChart.png" alt="MY ALT TEXT" width="30%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">Abundance prediction results</h3>
+        <!-- Your image here -->
+        <img src="Fig\unmixing\Unmix_ab_Urban.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">Endmember prediction results</h3>
+        <!-- Your image here -->
+        <img src="Fig\unmixing\Unmix_em_Urban.png" alt="MY ALT TEXT" width="30%"/>
+      </div>  
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Denoising & Super-resolution</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <h3 class="title is-4">Framework</h3>
+          <!-- Your image here -->
+          <img src="Fig\denoising\lowlevel_framework.png" alt="MY ALT TEXT" width="30%"/>
+        </div>
+       <div class="item">
+        <h3 class="title is-4">Denoising results using different methods in Case 5</h3>
+        <!-- Your image here -->
+        <img src="Fig\denoising\denosing_demonstration.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+      <div class="item">
+        <h3 class="title is-4">Super-resolution results</h3>
+        <!-- Your image here -->
+        <img src="Fig\super-resolution\superresolution_demonstration.png" alt="MY ALT TEXT" width="30%"/>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- <section class="hero teaser is-small">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="title is-3">Pretrained Models</h2>
@@ -361,50 +514,88 @@
       
     </div>
   </div>
-</section>
+</section> -->
+
 
 <head>
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
   <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+  <style>
+    /* 控制 Juxtapose 容器的尺寸 */
+    #comparison-slider {
+      width: 30%; /* 宽度调整为父容器的 50% */
+      height: 300px; /* 固定高度为 300px */
+      margin: 0 auto; /* 居中显示 */
+    }
+
+    /* 并排布局容器 */
+    .comparison-container {
+      display: flex; /* 使用 Flexbox 布局 */
+      justify-content: space-around; /* 滑动条之间均匀分布 */
+      gap: 20px; /* 滑动条之间的间距 */
+      margin-top: 20px; /* 顶部留白 */
+    }
+    
+  </style>
 </head>
 
-<!-- Image carousel -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Pairwise Comparisons</h2>
+      <h2 class="title is-3">Pairwise Comparisons of Super-resolution Results</h2>
 
-      <!-- Juxtapose slider -->
-      <div id="comparison-slider" class="juxtapose">
-        <img src="Fig/sr/bicubicx4.png" alt="Left Image" style="width: 60%; height: 60%;">
-        <img src="Fig/sr/oursx4.png" alt="Right Image" style="width: 60%; height: 60%;">
+      <!-- 并排滑动条容器 -->
+      <div class="comparison-container">
+        <!-- 第一个滑动条 -->
+        <div id="comparison-slider">
+          <!-- Juxtapose.js will automatically replace this div -->
+        </div>
+
+        <!-- 第二个滑动条 -->
+        <div id="comparison-slider">
+          <!-- Juxtapose.js will automatically replace this div -->
+        </div>
       </div>
 
-      <!-- Juxtapose.js -->
-      <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+      <!-- Juxtapose.js Script -->
       <script>
         document.addEventListener('DOMContentLoaded', function () {
-          new juxtapose.JXSlider('#comparison-slider', [
+          // 初始化第一个滑动条
+          new juxtapose.JXSlider('#comparison-slider:nth-of-type(1)', [
             {
-              src: 'Fig/sr/bicubicx4.png',
+              src: 'Fig/sr/bicubicx41.jpg',
               label: 'Bicubic x4'
             },
             {
-              src: 'Fig/sr/oursx4.png',
+              src: 'Fig/sr/oursx41.jpg',
               label: 'Ours x4'
             }
-          ]);
+          ], {
+            animate: true,
+            startingPosition: "50%",
+            showLabels: true
+          });
+
+          // 初始化第二个滑动条
+          new juxtapose.JXSlider('#comparison-slider:nth-of-type(2)', [
+            {
+              src: 'Fig/sr/bicubicx42.jpg',
+              label: 'Bicubic x4'
+            },
+            {
+              src: 'Fig/sr/oursx42.jpg',
+              label: 'Ours x4'
+            }
+          ], {
+            animate: true,
+            startingPosition: "50%",
+            showLabels: true
+          });
+        });
       </script>
     </div>
   </div>
 </section>
-
-<!-- End image carousel -->
-
-
-
-
-
 
 
 
@@ -414,79 +605,17 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Visual Comparisons</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <h3 class="title is-4">Visual Results of Loss Combinations</h3>
+      <h2 class="title is-3">Real-world Applicability</h2>
         <!-- Your image here -->
-        <img src="fig\loss_visual.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual comparison of the restored images obtained using the individual loss schemes and the proposed scheme.
+        <center><img src="Fig\application\oil.png"  alt="MY ALT TEXT" width="1200px" /></center>
+        <h2 class="subtitle has-text-lefted">
+          Visualization of detected oil leakage in various Gulf of Mexico regions by our models: (a) GM07, (b) GM13, (c) GM17, and (d) GM18.
         </h2>
-      </div>
-      <div class="item">
-        <h3 class="title is-4">Performance under Different Loss Ratio</h3>
-        <!-- Your image here -->
-        <img src="fig\loss_setting.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Comparison of PSNR and SSIM with different weight between different loss function on the Rain100L dataset. red, blue, and green are the weights λ1, λ2, and λ3, respectively.
-        </h2>
-      </div>
+    </div>
   </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
-
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
