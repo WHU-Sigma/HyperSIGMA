@@ -41,6 +41,11 @@
 
 
 # 🔥 Update
+
+**2025.03.31**
+
+- HyperSIGMA is accepted by IEEE TPAMI!
+
 **2024.10.22**
 - Scripts for [Image Super-Resolution](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_super-resolution).
 
