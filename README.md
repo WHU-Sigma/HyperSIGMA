@@ -16,7 +16,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.11519-b31b1b.svg)](https://arxiv.org/abs/2406.11519)
 [![Page](https://img.shields.io/badge/Project-Page-87CEEB)](https://github.com/WHU-Sigma/HyperSIGMA)
-[![HuggingFace](https://img.shields.io/badge/Huggingface-Model.svg&color=yellow)](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)
+[![HuggingFace](https://img.shields.io/badge/Huggingface-Model.svg)](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)
 [![Wechat](https://img.shields.io/badge/Wechat-Intro.svg)](https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw)
 
 <!-- [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Farxiv.org%2Fabs%2F2406.11519&count_bg=%23FF0000&title_bg=%23555555&icon=arxiv.svg&icon_color=%23E7E7E7&title=Arxiv+Preprint&edge_flat=false)](https://arxiv.org/abs/2406.11519)
