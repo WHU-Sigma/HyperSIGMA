@@ -15,7 +15,7 @@
 <div align="center">
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.11519-b31b1b.svg)](https://arxiv.org/abs/2406.11519)
-[![Page](https://img.shields.io/badge/Project-Page-87CEEB)]([https://chen-yang-liu.github.io/Text2Earth/](https://github.com/WHU-Sigma/HyperSIGMA)
+[![Page](https://img.shields.io/badge/Project-Page-87CEEB)](https://github.com/WHU-Sigma/HyperSIGMA)
 [![HuggingFace](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg&color=yellow)](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)
 [![Wechat](https://img.shields.io/badge/YouTube-Video-red.svg)](https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw)
 
