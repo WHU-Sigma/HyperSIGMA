@@ -46,9 +46,9 @@
 
 # 🔥 Update
 
-**2025.03.31**
+**2025.04.02**
 
-- HyperGlobal-450K has been released! Please see [here](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K).
+- The [arXiv](https://arxiv.org/abs/2406.11519) is updated, and HyperGlobal-450K has been released! Please see [here](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K).
 
 **2025.03.31**
 
