@@ -48,6 +48,10 @@
 
 **2025.03.31**
 
+- HyperGlobal-450K has been released! Please see [here](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K).
+
+**2025.03.31**
+
 - HyperSIGMA is accepted by IEEE TPAMI!
 
 **2024.10.22**
@@ -98,7 +102,7 @@ Extensive experiments on various high-level and low-level HSI tasks demonstrate 
 
 
 # 📖 Datasets
-To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **HyperGlobal-450K** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
+To train the foundational model, we collected hyperspectral remote sensing image samples from around the globe, constructing a large-scale hyperspectral dataset named **HyperGlobal-450K** for pre-training. **[HyperGlobal-450K](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K)** contains over 20 million three-band images, far exceeding the scale of existing hyperspectral datasets.
 
 <figure>
 <div align="center">
