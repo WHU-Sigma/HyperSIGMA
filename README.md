@@ -15,16 +15,19 @@
 <div align="center">
 
 <p align='center'>
-  <a href="https://arxiv.org/abs/2406.11519#"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2406.11519-b31b1b?style=for-the-badge" /></a>
+  <a href="https://whu-sigma.github.io/HyperSIGMA/"><img alt="Paper" src="https://img.shields.io/badge/Project-Page-87CEEB?style=for-the-badge" /></a>
+  <a href="https://arxiv.org/abs/2406.11519"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2406.11519-b31b1b?style=for-the-badge" /></a>
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/WHU-Sigma/HyperSIGMA?style=for-the-badge" /></a>
   <a href="#"><img alt="Maintenance" src="https://img.shields.io/badge/Maintaining-YES-93b023?&style=for-the-badge" /></a>
 </p>
 
 
+<p align='center'>
+  <a href="https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main"><img alt="HuggingFace" src="https://img.shields.io/badge/-HuggingFace-FDEE21?style=for-the-badge&logo=HuggingFace&logoColor=black" /></a>
+  <a href="https://github.com/WHU-Sigma/HyperSIGMA/#-pretrained-models"><img alt="Baidu Drive" src="https://img.shields.io/badge/-Baidu%20Drive-87CEEB?style=for-the-badge&logo=Baidu&logoColor=black" /></a>
+  <a href="(https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw"><img alt="Wechat" src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white" /></a>
+</p>
 
-[![Page](https://img.shields.io/badge/Project-Page-87CEEB?style=for-the-badge)](https://github.com/WHU-Sigma/HyperSIGMA)
-[![HuggingFace](https://img.shields.io/badge/-HuggingFace-FDEE21?style=for-the-badge&logo=HuggingFace&logoColor=black)](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)
-[![Wechat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw)
 
 <!-- [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Farxiv.org%2Fabs%2F2406.11519&count_bg=%23FF0000&title_bg=%23555555&icon=arxiv.svg&icon_color=%23E7E7E7&title=Arxiv+Preprint&edge_flat=false)](https://arxiv.org/abs/2406.11519)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FtYqe95Ip-fRBM57F2F5rvw&count_bg=%2311B36B&title_bg=%23555555&icon=wechat.svg&icon_color=%23E7E7E7&title=Wechat&edge_flat=false)](https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw)
