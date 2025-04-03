@@ -15,7 +15,7 @@
 <div align="center">
 
 <p align='center'>
-  <a href="https://whu-sigma.github.io/HyperSIGMA/"><img alt="Paper" src="https://img.shields.io/badge/Project-Page-87CEEB?style=for-the-badge" /></a>
+  <a href="https://whu-sigma.github.io/HyperSIGMA/"><img alt="Project" src="https://img.shields.io/badge/Project-Page-87CEEB?style=for-the-badge" /></a>
   <a href="https://arxiv.org/abs/2406.11519"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2406.11519-b31b1b?style=for-the-badge" /></a>
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/WHU-Sigma/HyperSIGMA?style=for-the-badge" /></a>
   <a href="#"><img alt="Maintenance" src="https://img.shields.io/badge/Maintaining-YES-93b023?&style=for-the-badge" /></a>
@@ -25,7 +25,7 @@
 <p align='center'>
   <a href="https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main"><img alt="HuggingFace" src="https://img.shields.io/badge/-HuggingFace-FDEE21?style=for-the-badge&logo=HuggingFace&logoColor=black" /></a>
   <a href="https://github.com/WHU-Sigma/HyperSIGMA/#-pretrained-models"><img alt="Baidu Drive" src="https://img.shields.io/badge/-Baidu%20Drive-87CEEB?style=for-the-badge&logo=Baidu&logoColor=black" /></a>
-  <a href="(https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw"><img alt="Wechat" src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white" /></a>
+  <a href="(https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw"><img alt="Wechat" src="https://img.shields.io/badge/WeChat%20article-07C160?style=for-the-badge&logo=wechat&logoColor=white" /></a>
 </p>
 
 
