@@ -203,7 +203,7 @@ Please refer to [MultispectralCD-README](https://github.com/WHU-Sigma/HyperSIGMA
 
 # ⭐ Citation
 
-If you find HyperSIGMA helpful, please consider giving this repo a ⭐ and citing:
+If you find our HyperSIGMA helpful, please give a ⭐ and cite it as follows:
 
 ```
 @article{hypersigma,
