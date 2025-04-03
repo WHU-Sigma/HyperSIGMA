@@ -36,6 +36,7 @@
 </div>
 
 <p align="center">
+  IEEE TPAMI'25 |
   <a href="#-update">Update</a> |
   <a href="#-overview">Overview</a> |
   <a href="#-datasets">Datasets</a> |
@@ -58,24 +59,25 @@
 
 **2025.04.02**
 
-- The [arXiv](https://arxiv.org/abs/2406.11519) is updated, and HyperGlobal-450K has been released! Please see [here](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K).
+- The **[arXiv](https://arxiv.org/abs/2406.11519)** is updated with more details. Stay tuned for further updates!
+- **HyperGlobal-450K** has been released! Please refer to **[here](https://huggingface.co/datasets/WHU-Sigma/HyperGlobal-450K)**.
 
 **2025.03.31**
 
-- HyperSIGMA is accepted by IEEE TPAMI!
+- We are delighted to annouce **HyperSIGMA** has been accepted by **IEEE TPAMI**!
 
 **2024.10.22**
-- Scripts for [Image Super-Resolution](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_super-resolution).
+- Scripts for **[Image Super-Resolution](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_super-resolution)**.
 
-- Checkpoints for [Image Denoising](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main/Denoising_models).
+- Checkpoints for **[Image Denoising](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main/Denoising_models)**.
 
 **2024.07.18**
 - Models can be downloaded from both **<a href="#-pretrained-models">Baidu Drive (百度网盘) <img height="15" width="15" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>** and **[Hugging Face 🤗](https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main)**.
 
-- Datasets for HSI denoising have been released for research use only. Please check it [here](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_denoising).
+- Datasets for HSI denoising have been released for research use only. Please check it **[here](https://huggingface.co/datasets/WHU-Sigma/HyperSIGMA_Datasets/tree/main/HyperSIGMA_denoising)**.
 
 **2024.06.18**
-- The paper is post on arxiv!**([arXiv 2406.11519](https://arxiv.org/abs/2406.11519))** 
+- The paper is post on arXiv! **([arXiv 2406.11519](https://arxiv.org/abs/2406.11519))** 
 
 
 # 🌞 Overview
