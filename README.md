@@ -3,6 +3,8 @@
 
 <h1>HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model</h1>
 
+<h2>TPAMI 2025</h2>
+
 
 [Di Wang](https://dotwang.github.io/)<sup>1 ∗</sup>, [Meiqi Hu](https://meiqihu.github.io/)<sup>1 ∗</sup>, [Yao Jin](https://scholar.google.com/citations?hl=en&user=PBqyF80AAAAJ)<sup>1 ∗</sup>, [Yuchun Miao](https://scholar.google.com/citations?hl=en&user=-ec3mwUAAAAJ)<sup>1 ∗</sup>, [Jiaqi Yang](https://jqyang22.github.io/)<sup>1 ∗</sup>, [Yichu Xu](https://scholar.google.com/citations?hl=en&user=CxKy4lEAAAAJ)<sup>1 ∗</sup>, [Xiaolei Qin](https://scholar.google.cz/citations?user=gFKE4TMAAAAJ&hl=zh-CN&oi=sra)<sup>1 ∗</sup>, [Jiaqi Ma](https://leonmakise.github.io/)<sup>1 ∗</sup>, [Lingyu Sun](https://github.com/KiwiLYu)<sup>1 ∗</sup>, [Chenxing Li](https://ieeexplore.ieee.org/author/37089818143)<sup>1 ∗</sup>, [Chuan Fu](https://www.researchgate.net/profile/Fu-Chuan)<sup>2</sup>, [Hongruixuan Chen](https://chrx97.com/)<sup>3</sup>, [Chengxi Han](https://chengxihan.github.io/)<sup>1 †</sup>, [Naoto Yokoya](https://naotoyokoya.com/)<sup>3</sup>, [Jing Zhang](https://scholar.google.com/citations?hl=en&user=9jH5v74AAAAJ&hl=en)<sup>1 †</sup>, [Minqiang Xu](https://openreview.net/profile?id=~Minqiang_Xu1)<sup>4</sup>, [Lin Liu](https://ieeexplore.ieee.org/author/37090050631)<sup>4</sup>, [Lefei Zhang](https://cs.whu.edu.cn/info/1019/2889.htm)<sup>1</sup>, [Chen Wu](http://jszy.whu.edu.cn/wuchen/en/index.htm)<sup>1 †</sup>, [Bo Du](https://cs.whu.edu.cn/info/1019/2892.htm)<sup>1 †</sup>, [Dacheng Tao](https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en)<sup>5</sup>, [Liangpei Zhang](http://www.lmars.whu.edu.cn/prof_web/zhangliangpei/rs/index.html)<sup>1 †</sup>
 
@@ -15,8 +17,9 @@
 <div align="center">
 
 <p align='center'>
-  <a href="https://whu-sigma.github.io/HyperSIGMA/"><img alt="Project" src="https://img.shields.io/badge/Project-Page-87CEEB?style=for-the-badge" /></a>
-  <a href="https://arxiv.org/abs/2406.11519"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2406.11519-b31b1b?style=for-the-badge" /></a>
+  <a href="https://whu-sigma.github.io/HyperSIGMA/"><img alt="Project" src="https://img.shields.io/badge/Project-Page-375BD2?style=for-the-badge" /></a>
+  <a href="https://arxiv.org/abs/2406.11519"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2406.11519-92003B?style=for-the-badge" /></a>
+  <a href="https://ieeexplore.ieee.org/document/10949864"><img alt="Pape" src="https://img.shields.io/badge/TPAMI-Paper-6D4AFF?style=for-the-badge" /></a>
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/WHU-Sigma/HyperSIGMA?style=for-the-badge" /></a>
   <a href="#"><img alt="Maintenance" src="https://img.shields.io/badge/Maintaining-YES-93b023?&style=for-the-badge" /></a>
 </p>
@@ -36,7 +39,6 @@
 </div>
 
 <p align="center">
-  IEEE TPAMI'25 |
   <a href="#-update">Update</a> |
   <a href="#-overview">Overview</a> |
   <a href="#-datasets">Datasets</a> |
@@ -56,6 +58,10 @@
 
 
 # 🔥 Update
+
+**2025.04.08**
+
+- The main paper is online published! Please see **[here](https://ieeexplore.ieee.org/document/10949864)**.
 
 **2025.04.02**
 
