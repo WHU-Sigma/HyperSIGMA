@@ -227,7 +227,6 @@ If you find our HyperSIGMA helpful, please give a ⭐ and cite it as follows:
   pages={1-18},
   doi={10.1109/TPAMI.2025.3557581}
 }
-
 ```
 
 # 🎺 Statement
