@@ -211,12 +211,17 @@ Please refer to [MultispectralCD-README](https://github.com/WHU-Sigma/HyperSIGMA
 If you find our HyperSIGMA helpful, please give a ⭐ and cite it as follows:
 
 ```
-@article{hypersigma,
-  title={HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model},
+@ARTICLE{hypersigma,
   author={Wang, Di and Hu, Meiqi and Jin, Yao and Miao, Yuchun and Yang, Jiaqi and Xu, Yichu and Qin, Xiaolei and Ma, Jiaqi and Sun, Lingyu and Li, Chenxing and Fu, Chuan and Chen, Hongruixuan and Han, Chengxi and Yokoya, Naoto and Zhang, Jing and Xu, Minqiang and Liu, Lin and Zhang, Lefei and Wu, Chen and Du, Bo and Tao, Dacheng and Zhang, Liangpei},
-  journal={arXiv preprint arXiv:2406.11519},
-  year={2024}
-}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-18},
+  keywords={Hyperspectral imaging;Foundation models;Transformers;Feature extraction;Training;Computer vision;Satellites;Computational modeling;Cameras;Scalability;Attention;foundation model;hyperspectral image;large-scale dataset;remote sensing;vision transformer},
+  doi={10.1109/TPAMI.2025.3557581}}
+
 ```
 
 # 🎺 Statement
