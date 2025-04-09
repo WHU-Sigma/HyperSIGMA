@@ -225,8 +225,8 @@ If you find our HyperSIGMA helpful, please give a ⭐ and cite it as follows:
   volume={},
   number={},
   pages={1-18},
-  keywords={Hyperspectral imaging;Foundation models;Transformers;Feature extraction;Training;Computer vision;Satellites;Computational modeling;Cameras;Scalability;Attention;foundation model;hyperspectral image;large-scale dataset;remote sensing;vision transformer},
-  doi={10.1109/TPAMI.2025.3557581}}
+  doi={10.1109/TPAMI.2025.3557581}
+}
 
 ```
 
