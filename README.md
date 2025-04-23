@@ -28,7 +28,7 @@
 <p align='center'>
   <a href="https://huggingface.co/WHU-Sigma/HyperSIGMA/tree/main"><img alt="HuggingFace" src="https://img.shields.io/badge/-HuggingFace-FDEE21?style=for-the-badge&logo=HuggingFace&logoColor=black" /></a>
   <a href="https://github.com/WHU-Sigma/HyperSIGMA/#-pretrained-models"><img alt="Baidu Drive" src="https://img.shields.io/badge/-Baidu%20Drive-87CEEB?style=for-the-badge&logo=Baidu&logoColor=black" /></a>
-  <a href="(https://mp.weixin.qq.com/s/tYqe95Ip-fRBM57F2F5rvw"><img alt="Wechat" src="https://img.shields.io/badge/WeChat%20article-07C160?style=for-the-badge&logo=wechat&logoColor=white" /></a>
+  <a href="https://mp.weixin.qq.com/s/dsUYTbZKfYBGmC4mju0zPg"><img alt="Wechat" src="https://img.shields.io/badge/WeChat%20article-07C160?style=for-the-badge&logo=wechat&logoColor=white" /></a>
 </p>
 
 
