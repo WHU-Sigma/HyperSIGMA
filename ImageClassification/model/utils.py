@@ -377,7 +377,47 @@ def imshow_HC(data,class_num,name):
     plt.axis('off')  # 关闭坐标轴
     plt.savefig(name,dpi=360)
     plt.show()
+def Get_train_and_test_data_inference(img_size, img):
+    H0, W0, C = img.shape
+    if H0<img_size:
+        gap = img_size-H0
+        mirror_img = img[(H0-gap):H0,:,:]
+        img = np.concatenate([img,mirror_img],axis=0)
+    if W0<img_size:
+        gap = img_size-W0
+        mirror_img = img[:,(W0 - gap):W0,:]
+        img = np.concatenate([img,mirror_img],axis=1)
+    H, W, C = img.shape
 
+    num_H = H // img_size
+    num_W = W // img_size
+    sub_H = H % img_size
+    sub_W = W % img_size
+    if sub_H != 0:
+        gap = (num_H+1)*img_size - H
+        mirror_img = img[(H - gap):H, :, :]
+        img = np.concatenate([img, mirror_img], axis=0)
+
+    if sub_W != 0:
+        gap = (num_W + 1) * img_size - W
+        mirror_img = img[:, (W - gap):W, :]
+        img = np.concatenate([img, mirror_img], axis=1)
+        # gap = img_size - num_W*img_size
+        # img = img[:,(W - gap):W,:]
+    H, W, C = img.shape
+    print('padding img:', img.shape)
+
+    num_H = H // img_size
+    num_W = W // img_size
+
+    sub_imgs = []
+    for i in range(num_H):
+        for j in range(num_W):
+            z = img[i * img_size:(i + 1) * img_size, j * img_size:(j + 1) * img_size, :]
+            sub_imgs.append(z)
+    sub_imgs = np.array(sub_imgs)  # [num_H*num_W,img_size,img_size, C ]
+
+    return sub_imgs, num_H, num_W,img
 def Get_train_and_test_data(img_size, img,img_gt):
     H0, W0, C = img.shape
     if H0<img_size:
