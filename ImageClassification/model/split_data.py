@@ -68,7 +68,19 @@ def create_patches(X, y, window_size=5, remove_zero_labels = True):
         patchesLabels = patchesLabels[patchesLabels>0]                         # (10249,)
         # patchesLabels -= 1
     return patchesData, patchesLabels
-
+def create_patches_inference(X, window_size=5):
+    margin = int((window_size - 1) / 2)                                         # =>2
+    zeroPaddedX = pad_with_zeros(X, margin=margin)                              # (149, 149, 30)
+    # split patches
+    patchesData = np.zeros((X.shape[0] * X.shape[1], window_size, 
+                            window_size, X.shape[2]), dtype=np.float32)                           # (21025, 5, 5, 30)          # (21025,)
+    patchIndex = 0
+    for r in range(margin, zeroPaddedX.shape[0] - margin):
+        for c in range(margin, zeroPaddedX.shape[1] - margin):
+            patch = zeroPaddedX[r - margin:r + margin + 1, c - margin:c + margin + 1]
+            patchesData[patchIndex, :, :, :] = patch
+            patchIndex = patchIndex + 1
+    return patchesData
 def split_train_test_set(data_all, data_label_all,data_label_all_merge, class_num, train_num=50, val_num=16, train_ratio=0.1, val_ratio=0.1, split_type='number'):
     
     if split_type != 'number' and split_type != 'ratio':
