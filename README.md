@@ -222,9 +222,10 @@ If you find our HyperSIGMA helpful, please give a ⭐ and cite it as follows:
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
   title={HyperSIGMA: Hyperspectral Intelligence Comprehension Foundation Model}, 
   year={2025},
-  volume={},
-  number={},
-  pages={1-18},
+  volume={47},
+  number={8},
+  pages={6427-6444},
+  keywords={Hyperspectral imaging;Foundation models;Transformers;Feature extraction;Training;Computer vision;Satellites;Computational modeling;Cameras;Scalability;Remote sensing;hyperspectral image;foundation model;attention;vision transformer;large-scale dataset},
   doi={10.1109/TPAMI.2025.3557581}
 }
 ```
