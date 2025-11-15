@@ -59,6 +59,10 @@
 
 # 🔥 Update
 
+**2025.11.15**
+
+- 🏆 HyperSIGMA is selected as a Highly Cited Paper!
+
 **2025.04.08**
 
 - The main paper is online published! Please see **[here](https://ieeexplore.ieee.org/document/10949864)**.
