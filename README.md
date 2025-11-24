@@ -59,7 +59,7 @@
 
 # 🔥 Update
 
-**2025.11.15**
+**2025.11.24**
 
 - **HyperGlobal-450K** can be assesed through **[Baidu disk](https://pan.baidu.com/s/1duYGTpeEcuQkLByTSjyOtQ?pwd=j9pv)**.
 
