@@ -61,6 +61,10 @@
 
 **2025.11.15**
 
+- **HyperGlobal-450K** can be assesed through [Baidu Disk](https://pan.baidu.com/s/13Y4I6Btah4nffLDm-goYUA)
+
+**2025.11.15**
+
 - 🏆 HyperSIGMA is selected as a Highly Cited Paper!
 
 **2025.04.08**
