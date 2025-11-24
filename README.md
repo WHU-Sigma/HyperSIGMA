@@ -61,7 +61,7 @@
 
 **2025.11.15**
 
-- **HyperGlobal-450K** can be assesed through [Baidu Disk](https://pan.baidu.com/s/13Y4I6Btah4nffLDm-goYUA)
+- **HyperGlobal-450K** can be assesed through **[Baidu disk](https://pan.baidu.com/s/1duYGTpeEcuQkLByTSjyOtQ?pwd=j9pv)**.
 
 **2025.11.15**
 
