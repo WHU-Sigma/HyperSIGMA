@@ -56,12 +56,11 @@
 
 
 
-
 # 🔥 Update
 
 **2025.11.24**
 
-- **HyperGlobal-450K** can be assesed through **[Baidu disk](https://pan.baidu.com/s/1duYGTpeEcuQkLByTSjyOtQ?pwd=j9pv)**.
+- **HyperGlobal-450K** can be assesed through **<a href="https://pan.baidu.com/s/1duYGTpeEcuQkLByTSjyOtQ?pwd=j9pv">Baidu Drive (百度网盘) <img height="15" width="15" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/baidu.svg"/></a>**.
 
 **2025.11.15**
 
