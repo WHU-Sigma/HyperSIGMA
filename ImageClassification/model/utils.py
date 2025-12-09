@@ -136,80 +136,40 @@ def setup_seed(seed):
     torch.backends.cudnn.benchmark = False # if benchmark=True, deterministic will be False
 
 
-def evaluate_performance_all(network_output,train_samples_gt,train_samples_gt_onehot, m, n, class_count, Test_GT, device,require_AA_KPP=False,printFlag=True):
-    OA_ALL = []
-    AA_ALL = []
-    KPP_ALL = []
-    AVG_ALL = []
-    zeros = torch.zeros([m * n]).float().to(device)
-    if False==require_AA_KPP:
-        with torch.no_grad():
-            available_label_idx=(train_samples_gt!=0).float()#有效标签的坐标,用于排除背景
-            available_label_count=available_label_idx.sum()#有效标签的个数
-            correct_prediction =torch.where(torch.argmax(network_output, 1) ==torch.argmax(train_samples_gt_onehot, 1),available_label_idx,zeros).sum()
-            OA= correct_prediction.cpu()/available_label_count
-            
-            return OA
-    else:
-        with torch.no_grad():
-            #计算OA
-            available_label_idx=(train_samples_gt!=0).float()#有效标签的坐标,用于排除背景
-            available_label_count=available_label_idx.sum()#有效标签的个数
-            correct_prediction =torch.where(torch.argmax(network_output, 1) ==torch.argmax(train_samples_gt_onehot, 1),available_label_idx,zeros).sum()
-            OA= correct_prediction.cpu()/available_label_count
-            OA=OA.cpu().numpy()
-            
-            # 计算AA
-            zero_vector = np.zeros([class_count])
-            output_data=network_output.cpu().numpy()
-            train_samples_gt=train_samples_gt.cpu().numpy()
-            train_samples_gt_onehot=train_samples_gt_onehot.cpu().numpy()
-            
-            output_data = np.reshape(output_data, [m * n, class_count])
-            idx = np.argmax(output_data, axis=-1)
-            for z in range(output_data.shape[0]):
-                if ~(zero_vector == output_data[z]).all():
-                    idx[z] += 1
-            
-            count_perclass = np.zeros([class_count])
-            correct_perclass = np.zeros([class_count])
-            for x in range(len(train_samples_gt)):
-                if train_samples_gt[x] != 0:
-                    count_perclass[int(train_samples_gt[x] - 1)] += 1
-                    if train_samples_gt[x] == idx[x]:
-                        correct_perclass[int(train_samples_gt[x] - 1)] += 1
+                       correct_perclass[g] += 1
+
             test_AC_list = correct_perclass / count_perclass
             test_AA = np.average(test_AC_list)
 
-            # 计算KPP
+            # --- Kappa ---
             test_pre_label_list = []
             test_real_label_list = []
-            output_data = np.reshape(output_data, [m * n, class_count])
-            idx = np.argmax(output_data, axis=-1)
-            idx = np.reshape(idx, [m, n])
-            for ii in range(m):
-                for jj in range(n):
-                    if Test_GT[ii][jj] != 0:
-                        test_pre_label_list.append(idx[ii][jj] + 1)
-                        test_real_label_list.append(Test_GT[ii][jj])
+
+            for i in range(len(gt_np)):
+                if gt_np[i] != 0:
+                    test_pre_label_list.append(pred_np[i])
+                    test_real_label_list.append(gt_np[i])
+
             test_pre_label_list = np.array(test_pre_label_list)
             test_real_label_list = np.array(test_real_label_list)
-            kappa = metrics.cohen_kappa_score(test_pre_label_list.astype(np.int16),
-                                              test_real_label_list.astype(np.int16))
-            test_kpp = kappa
+
+            test_kpp = metrics.cohen_kappa_score(
+                test_pre_label_list.astype(np.int16),
+                test_real_label_list.astype(np.int16)
+            )
 
             # 输出
             if printFlag:
                 print("test OA=", OA, "AA=", test_AA, 'kpp=', test_kpp)
-                print('acc per class:')
+                print("acc per class:")
                 print(test_AC_list)
 
             OA_ALL.append(OA)
             AA_ALL.append(test_AA)
             KPP_ALL.append(test_kpp)
             AVG_ALL.append(test_AC_list)
-           
-            return OA,OA_ALL,AA_ALL,KPP_ALL,AVG_ALL
+
+            return OA, OA_ALL, AA_ALL, KPP_ALL, AVG_ALL
         
         
 def aa_and_each_accuracy(confusion_matrix):
