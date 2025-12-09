@@ -239,10 +239,9 @@ class SSFusionFramework(torch.nn.Module):
         ss_feature = self.conv(ss_feature)
         
         output = self.cls(ss_feature)
-        output = torch.squeeze(output, 0)
-        output = output.permute([1, 2, 0]).reshape([h * w, -1])
-
+        output = output.permute([0,2, 3, 1]).reshape([b,h * w, -1])
         return output
+
 
 
 
