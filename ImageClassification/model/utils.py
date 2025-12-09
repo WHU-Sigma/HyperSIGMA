@@ -136,7 +136,68 @@ def setup_seed(seed):
     torch.backends.cudnn.benchmark = False # if benchmark=True, deterministic will be False
 
 
-                       correct_perclass[g] += 1
+def evaluate_performance_all(network_output,
+                             train_samples_gt,
+                             train_samples_gt_onehot,
+                             m, n, class_count,
+                             Test_GT, device,
+                             require_AA_KPP=False,
+                             printFlag=True):
+
+    OA_ALL = []
+    AA_ALL = []
+    KPP_ALL = []
+    AVG_ALL = []
+
+    # 展开为一维
+    pred_flat = network_output.reshape(-1)
+    gt_flat = train_samples_gt.reshape(-1)
+    zeros = torch.zeros_like(pred_flat).float().to(device)
+
+    # 转到 GPU
+    pred_flat = pred_flat.to(device)
+    gt_flat = gt_flat.to(device)
+
+    # ============= 只计算 OA 的情况 =============
+    if not require_AA_KPP:
+        with torch.no_grad():
+            available_label_idx = (gt_flat != 0).float()
+            available_label_count = available_label_idx.sum()
+
+            correct_prediction = torch.where(pred_flat == gt_flat,
+                                             available_label_idx,
+                                             zeros).sum()
+
+            OA = correct_prediction.cpu() / available_label_count
+            return OA
+
+    # ============= 计算 OA + AA + Kappa =============
+    else:
+        with torch.no_grad():
+
+            # --- OA ---
+            available_label_idx = (gt_flat != 0).float()
+            available_label_count = available_label_idx.sum()
+
+            correct_prediction = torch.where(pred_flat == gt_flat,
+                                             available_label_idx,
+                                             zeros).sum()
+
+            OA = (correct_prediction.cpu() / available_label_count).cpu().numpy()
+
+            # --- AA ---
+            pred_np = pred_flat.cpu().numpy()
+            gt_np = gt_flat.cpu().numpy()
+
+            count_perclass = np.zeros([class_count])
+            correct_perclass = np.zeros([class_count])
+
+            for i in range(len(gt_np)):
+                if gt_np[i] != 0:
+                    g = int(gt_np[i]) - 1
+                    count_perclass[g] += 1
+                    if pred_np[i] == gt_np[i]:
+                        correct_perclass[g] += 1
 
             test_AC_list = correct_perclass / count_perclass
             test_AA = np.average(test_AC_list)
@@ -170,7 +231,6 @@ def setup_seed(seed):
             AVG_ALL.append(test_AC_list)
 
             return OA, OA_ALL, AA_ALL, KPP_ALL, AVG_ALL
-        
         
 def aa_and_each_accuracy(confusion_matrix):
     list_diag = np.diag(confusion_matrix)
