@@ -247,3 +247,4 @@ This project is based on [MMCV](https://github.com/open-mmlab/mmcv), [MAE](https
 
 <img src="https://visitor-badge.laobi.icu/badge?page_id=WHU-Sigma.HyperSIGMA&left_color=%2363C7E6&right_color=%23CEE75F">
 
+[![Star History Chart](https://api.star-history.com/svg?repos=WHU-Sigma/HyperSIGMA&type=Date)](https://star-history.com/#WHU-Sigma/HyperSIGMA&Date)
