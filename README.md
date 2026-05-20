@@ -58,7 +58,7 @@
 
 # 🔥 Update
 
-**2025.11.15**
+**2026.05.20**
 
 - 🔥 HyperSIGMA is selected as a ESI Hot Paper!
 
